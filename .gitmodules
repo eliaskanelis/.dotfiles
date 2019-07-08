@@ -14,5 +14,5 @@
 	path = files/opt/Quantum_Leaps/qpc
 	url = https://github.com/QuantumLeaps/qpc.git
 [submodule "qptools"]
-	path = files/opt/Quantum_Leaps/qptools
+	path = files/opt/Quantum_Leaps/qtools
 	url = https://github.com/QuantumLeaps/qtools.git
