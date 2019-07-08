@@ -1,0 +1,13 @@
+#alias ed="emacs --daemon"
+alias e="emacsclient -create-frame --alternate-editor="
+
+alias pgrep="ps -aux | grep"
+
+alias ccat="highlight --force --out-format=ansi"
+
+alias bashconfig="e ~/.bashrc"
+
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
+
+alias webGet="wget --random-wait -r -p -e robots=off -U mozilla "

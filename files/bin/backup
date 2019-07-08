@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#Back up my dotfiles
+
+WHAT_DIR="${HOME}/sync"
+WHERE_DIR="/media/tedi/BackPacker/backup/"
+
+if [ ! -d "${WHAT_DIR}" ];
+then
+    echo "'${WHAT_DIR}' does not exist!"
+    exit 1
+fi
+
+if [ ! -d "${WHERE_DIR}" ];
+then
+    echo "'${WHERE_DIR}' does not exist!"
+    exit 1
+fi
+
+rsync -avrhtucP --delete ${WHAT_DIR} ${WHERE_DIR}

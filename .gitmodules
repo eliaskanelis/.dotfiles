@@ -1,0 +1,18 @@
+[submodule ".emacs.d"]
+	path = files/.emacs.d
+	url = https://github.com/TediCreations/.emacs.d.git
+[submodule ".oh-my-zsh"]
+	path = files/.oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "PC Lint Config"]
+	path = files/opt/Pc-lint/config
+	url = https://github.com/GimpelSoftware/config.git
+[submodule "cpputest"]
+	path = files/opt/cpputest
+	url = https://github.com/cpputest/cpputest.git
+[submodule "qpc"]
+	path = files/opt/Quantum_Leaps/qpc
+	url = https://github.com/QuantumLeaps/qpc.git
+[submodule "qptools"]
+	path = files/opt/Quantum_Leaps/qptools
+	url = https://github.com/QuantumLeaps/qtools.git

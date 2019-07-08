@@ -1,0 +1,15 @@
+#!/bin/bash
+
+PROJPATH="$(cd "$(dirname "$0")"; pwd)"
+echo "Project directory is ${PROJPATH}"
+echo ""
+
+# Create sympolic links for every file or directory inside files directory
+FILES=$(find "${PROJPATH}/files/" -mindepth 1 -maxdepth 1 -name '*' -exec basename {} \;)
+
+IFS=$'\n'       # make newlines the only separator
+for FILE in ${FILES}
+do
+    echo "UNLINKING: ${PROJPATH}/files/${FILE} -> ${HOME}/${FILE}"
+    rm -rf "${HOME}/${FILE}"
+done

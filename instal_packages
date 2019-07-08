@@ -1,0 +1,57 @@
+#!/bin/bash
+
+sudo apt-get install -y highlight
+
+sudo apt-get install -y moreutils
+sudo apt-get install -y xclip
+
+sudo apt-get install -y wget
+sudo apt-get install -y tree
+sudo apt-get install -y youtube-dl
+sudo apt-get install -y wireshark
+sudo apt-get install -y gnucash
+sudo apt-get install -y tmux
+sudo apt-get install -y redshift
+
+sudo apt-get install -y ipython3
+
+sudo apt-get install -y zsh
+chsh -s $(which zsh)
+sudo apt-get install -y fonts-powerline
+
+# Hugo
+sudo apt-get install -y hugo
+sudo apt-get install -y python3-pygments
+
+sudo apt-get install -y git
+sudo apt-get install -y emacs
+sudo apt-get install -y global
+sudo apt-get install -y keepassxc
+sudo apt-get install -y texlive-full
+
+sudo apt-get install -y qemu
+
+sudo apt-get install -y python3-setuptools
+sudo apt-get install -y python3-pip
+sudo apt-get install -y python3-serial
+sudo apt-get install -y python3-pygments
+sudo apt-get install -y python3-jedi
+
+sudo apt-get install -y g++
+sudo apt-get install -y automake autoconf libtool
+
+sudo apt-get install -y libsdl2-dev
+sudo apt-get install -y libsdl2-image-dev
+sudo apt-get install -y libsdl2-ttf-dev
+sudo apt-get install -y libsdl2-mixer-dev
+
+sudo apt-get install -y exuberant-ctags
+
+sudo apt-get install -y screen
+sudo apt-get install -y inkscape
+
+sudo apt-get install -y virtualbox
+sudo apt-get install -y virtualbox-qt
+sudo apt-get install -y virtualbox-guest-additions-iso
+
+git clone https://github.com/TediCreations/.emacs.d.git

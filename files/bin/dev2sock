@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# This script creates a socket and redirects it with a serial device.
+# Usage:
+# -d device Serial Device
+# -p port   TCP/IP port in the local machine
+#
+# example: dev2sock -d /dev/pts/3 -p 9802
+#
+
+# Trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+function ctrl_c() {
+	echo -e "\nBye-bye!"
+	exit 0
+}
+
+# Get arguments
+while getopts d:p: option
+do
+    case "${option}"
+    in
+	d) device=${OPTARG};;
+	p) port=${OPTARG};;
+    esac
+done
+
+# Check that device argument exists
+if [ "${device}" = "" ]; then
+    echo "Error: Missing device argument!"
+    exit 1
+fi
+
+# Check that port argument exists
+if [ "${port}" = "" ]; then
+    echo "Error: Missing TCP/IP port argument!"
+    exit 1
+fi
+
+# Check that nc is installed
+if ! [ -x "$(command -v nc)" ]; then
+  echo 'Error: nc is not installed.' >&2
+  exit 1
+fi
+
+# Run
+echo "Connecting '${device}' with 'localhost:${port}'"
+nc -l ${port} > ${device} < ${device}
+#socat TCP-LISTEN:${port},fork,reuseaddr FILE:${device},b57600,raw
+exit 1

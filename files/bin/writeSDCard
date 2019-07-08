@@ -1,0 +1,43 @@
+#!/bin/bash
+
+NAME=$1
+DEVICE="/dev/mmcblk0"
+
+# Check if device exists
+if ! [ -e ${DEVICE} ] ; then
+    echo "Device ${DEVICE} not found"
+    exit 1
+fi
+
+# Check file argument
+if [ -z ${NAME} ] ; then
+    echo "Please provide image filename"
+    exit 2
+fi
+
+# Check if image file exists
+if ! [ -f ${NAME} ]; then
+    echo "${NAME} does not exist!!!"
+    exit 3
+fi
+
+# Unmount SD Card
+echo "Unmounting SD Card"
+umount ${DEVICE}*
+
+# Decompress it
+#echo "Decompressing image"
+#gzip -9 -k ${NAME}
+#echo "OK"
+
+# Write to SD Card
+echo "Writing SD Card from ${NAME}"
+sudo dd bs=4M if=${NAME} of=${DEVICE} conv=fsync status=progress
+
+# Write cache to disc
+sync
+
+# Notify me
+aplay ~/success.wav
+
+echo "Finished"
