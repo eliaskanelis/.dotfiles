@@ -79,9 +79,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='emacsclient -create-frame --alternate-editor='
+    export EDITOR='emacsclient -t -create-frame --alternate-editor='
 else
-    export EDITOR='emacsclient -create-frame --alternate-editor='
+    export EDITOR='emacsclient -t -create-frame --alternate-editor='
 fi
 
 # Compilation flags
@@ -110,3 +110,9 @@ fi
 
 export CPPUTEST_DIR="${HOME}/opt/cpputest"
 export PC_LINT_DIR="${HOME}/opt/Pc-lint"
+
+# Connect to a session called TMUX when you launch terminal.
+if [ -z "$TMUX" ]
+then
+    tmux attach -t TMUX || tmux new -s TMUX -c "$PWD"
+fi
