@@ -1,4 +1,5 @@
-alias e="emacsclient -create-frame --alternate-editor="
+alias e="emacsclient -t -create-frame --alternate-editor="
+alias em="emacsclient -create-frame --alternate-editor="
 
 alias pgrep="ps -aux | grep"
 
