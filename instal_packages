@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# System admin tools
+sudo apt-get install -y parted
+sudo apt-get install -y gparted
+
 # Tools
 sudo apt-get install -y wget
 sudo apt-get install -y tree

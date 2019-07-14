@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Install Dependency packages
+sudo apt-get update
+sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+
+# Add Docker’s official GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+# Add the Docker repository to Linux Mint 19
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
+
+# Install Docker Engine and Docker Compose in Linux Mint 19
+sudo apt-get update
+sudo apt-get -y  install docker-ce docker-compose
+sudo usermod -aG docker $USER
