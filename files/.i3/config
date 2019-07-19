@@ -14,7 +14,10 @@ set $left j
 set $right semicolon
 
 # Run emacs
-bindsym $mod+x exec emacsclient -create-frame --alternate-editor=emacs
+bindsym $mod+Shift+x exec --no-startup-id emacsclient -create-frame --alternate-editor=
+
+# Run file manager
+bindsym $mod+Shift+f exec i3-sensible-terminal -e ranger
 
 # Use window title, but no border
 bindsym $mod+n border normal 0
@@ -36,6 +39,9 @@ bindsym $mod+Shift+d exec xrandr --auto --output VGA1 --primary --mode 1920x1080
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+
+# start a base tmux session
+bindsym $mod+BackSpace exec i3-sensible-terminal -e tmux
 
 # kill focused window
 bindsym $mod+q kill

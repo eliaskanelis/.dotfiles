@@ -112,7 +112,7 @@ export CPPUTEST_DIR="${HOME}/opt/cpputest"
 export PC_LINT_DIR="${HOME}/opt/Pc-lint"
 
 # Connect to a session called TMUX when you launch terminal.
-if [ -z "$TMUX" ]
-then
-    tmux attach -t TMUX || tmux new -s TMUX -c "$PWD"
-fi
+#if [ -z "$TMUX" ]
+#then
+#    tmux attach -t TMUX || tmux new -s TMUX -c "$PWD"
+#fi
