@@ -9,6 +9,8 @@ sudo apt-get install -y nemo
 # Tools
 sudo apt-get install -y wget
 sudo apt-get install -y tree
+sudo apt-get install -y entr
+sudo apt-get install -y sshfs
 sudo apt-get install -y youtube-dl
 sudo apt-get install -y wireshark
 sudo apt-get install -y gnucash
@@ -20,6 +22,7 @@ sudo apt-get install -y moreutils
 sudo apt-get install -y xclip
 sudo apt-get install -y screen
 sudo apt-get install -y ipython3
+sudo apt-get install -y rlwrap
 
 # ZSH
 sudo apt-get install -y zsh
@@ -34,11 +37,24 @@ sudo apt-get install -y python3-pygments
 sudo apt-get install -y g++
 sudo apt-get install -y automake autoconf libtool
 sudo apt-get install -y git
-sudo apt-get install -y emacs
 sudo apt-get install -y exuberant-ctags
 sudo apt-get install -y global
 sudo apt-get install -y texlive-full
 sudo apt-get install -y tmux
+sudo apt-get install -y doxygen
+
+# Emacs
+sudo apt-get install -y emacs
+
+# Embedded
+sudo apt-get install -y i2c-tools
+sudo apt-get install -y ser2net
+sudo apt-get install -y gpiod
+
+# Mocking
+sudo apt-get install -y ser2net
+sudo apt-get install -y gpiod
+sudo apt-get install -y i2c-tools
 
 # Qemu
 sudo apt-get install -y qemu
