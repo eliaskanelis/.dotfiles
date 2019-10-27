@@ -81,7 +81,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='emacsclient -t -create-frame --alternate-editor='
 else
-    export EDITOR='emacsclient -t -create-frame --alternate-editor='
+    export EDITOR='emacsclient -create-frame --alternate-editor='
 fi
 
 # Compilation flags
@@ -116,3 +116,6 @@ export PC_LINT_DIR="${HOME}/opt/Pc-lint"
 #then
 #    tmux attach -t TMUX || tmux new -s TMUX -c "$PWD"
 #fi
+
+# Emacs keybindings
+bindkey -e

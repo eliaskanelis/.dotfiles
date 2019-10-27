@@ -2,7 +2,7 @@
 	email = hkanelhs@yahoo.gr
 	name = tedi
 [core]
-	editor = emacs
+	editor = emacsclient -t -create-frame --alternate-editor=
 	quotepath = false
 [diff]
     prompt = false
@@ -15,7 +15,7 @@
     lg2 = log --all --graph --decorate --oneline
 	st = status
 	co = checkout
-	ci = commit
+	ci = commit -v
 	br = branch
 	d = difftool
 [mergetool]
