@@ -1,6 +1,10 @@
+# Standard emacs
+alias emacs="emacs-26.3"
+
 alias e="emacsclient -t -create-frame --alternate-editor="
 alias em="emacsclient -create-frame --alternate-editor="
 
+# Tools
 alias pgrep="ps -aux | grep"
 
 alias ccat="highlight --force --out-format=ansi"
