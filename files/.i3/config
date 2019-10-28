@@ -13,11 +13,61 @@ set $down k
 set $left j
 set $right semicolon
 
-# Run emacs
-bindsym $mod+Shift+x exec --no-startup-id emacsclient -create-frame --alternate-editor=
+################################################################################
+# Run apps #####################################################################
+################################################################################
+
+# Start a terminal session
+bindsym $mod+Return exec --no-startup-id ~/scripts/run/terminal.sh
+
+# Start a tmux session
+bindsym $mod+BackSpace exec --no-startup-id ~/scripts/run/tmux.sh
+
+# Run editor
+bindsym $mod+Shift+x exec --no-startup-id ~/scripts/run/editor.sh
 
 # Run file manager
-bindsym $mod+Shift+f exec i3-sensible-terminal -e ranger
+bindsym $mod+Shift+f exec --no-startup-id ~/scripts/run/fileManager.sh
+
+################################################################################
+# System #######################################################################
+################################################################################
+
+# Shutdown, Logout, lock etc pc
+bindsym $mod+Shift+e exec --no-startup-id ~/scripts/system/menu.sh
+
+# Run program launcher
+bindsym $mod+d exec --no-startup-id ~/scripts/system/launch.sh
+
+# Locate file or directory and open it
+bindsym $mod+z exec --no-startup-id ~/scripts/system/locate.sh
+
+# Printscreen
+bindsym Print exec --no-startup-id ~/scripts/system/printscreen.sh
+
+################################################################################
+# Display ######################################################################
+################################################################################
+
+# Change between displays
+bindsym $mod+Shift+a exec --no-startup-id ~/scripts/display/useOnlyExternal.sh
+bindsym $mod+Shift+s exec --no-startup-id ~/scripts/display/useBoth.sh
+bindsym $mod+Shift+d exec --no-startup-id ~/scripts/display/useOnlyInternal.sh
+
+################################################################################
+# Audio ########################################################################
+################################################################################
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/scripts/audio/volumeUp.sh
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/scripts/audio/volumeDown.sh
+bindsym XF86AudioMute exec --no-startup-id ~/scripts/audio/mute.sh
+
+################################################################################
+# i3 ###########################################################################
+################################################################################
+
+# Config files
+bindsym $mod+e exec --no-startup-id ~/scripts/run/editor.sh ~/.i3/config
 
 # Use window title, but no border
 bindsym $mod+n border normal 0
@@ -28,46 +78,14 @@ bindsym $mod+y border pixel 3
 # Use neither window title nor border
 bindsym $mod+u border none
 
-# Run apps
-bindsym $mod+e exec emacsclient -create-frame --alternate-editor=emacs ~/.i3/config
-bindsym $mod+Tab exec i3lock -e -t -i ~/.wallpaper.png
-
-# Change screens
-bindsym $mod+Shift+a exec xrandr --output VGA1 --primary --mode 1920x1080 --output LVDS1 --off
-bindsym $mod+Shift+s exec xrandr --output LVDS1 --primary --mode 1366x768 --output VGA1 --off
-bindsym $mod+Shift+d exec xrandr --auto --output VGA1 --primary --mode 1920x1080 --left-of LVDS1
-
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
-# start a base tmux session
-bindsym $mod+BackSpace exec i3-sensible-terminal -e tmux
-
 # kill focused window
 bindsym $mod+q kill
-
-# start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show run
-
-# Pulse Audio Controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% # Increase
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% # Decrease
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # Mute
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-
-# scrot & gimp - root
-bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
-# scrot & gimp - select window or rectangle
-bindsym $mod+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 ################################################################################
 # WORKSPACES ###################################################################
@@ -193,7 +211,7 @@ bindsym $mod+c focus child
 #bindsym $mod+minus scratchpad show
 
 ################################################################################
-# KEYBINDINGS ##################################################################
+# Resize #######################################################################
 ################################################################################
 
 bindsym $mod+r mode $resize_mode
@@ -301,7 +319,7 @@ assign [class="Nemo"] $ws_home_name
 # STARTUP ######################################################################
 ################################################################################
 
-exec --no-startup-id xrandr --output VGA1 --mode 1920x1080 --primary --output LVDS1 --off
+exec --no-startup-id  ~/scripts/display/useOnlyExternal.sh
 exec --no-startup-id feh --bg-max ~/.wallpaper.png
 exec --no-startup-id nm-applet
 
