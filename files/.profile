@@ -18,6 +18,14 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
+    # Add subdirectories to path
+    for dir in ${HOME}/bin/* ; do
+    if [ -d "$dir" ]; then
+	#echo "Dir: '${dir}'"
+	PATH="${dir}:${PATH}"
+    fi
+    done
+    # Ass orphan scripts
     PATH="$HOME/bin:$PATH"
 fi
 
