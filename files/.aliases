@@ -15,3 +15,6 @@ alias setclip="xclip -selection c"
 alias getclip="xclip -selection c -o"
 
 alias webGet="wget --random-wait -r -p -e robots=off -U mozilla "
+
+alias weather="curl v2.wttr.in/thessaloniki"
+alias moon="curl wttr.in/Moon"

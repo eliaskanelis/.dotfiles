@@ -3,4 +3,4 @@
 # Shutdown the pc
 
 sync
-shutdown -h now
+shutdown -ar now
