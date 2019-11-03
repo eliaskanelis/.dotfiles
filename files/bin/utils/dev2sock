@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script creates a socket and redirects it with a serial device.
 # Usage:

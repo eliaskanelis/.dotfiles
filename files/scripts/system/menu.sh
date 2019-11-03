@@ -25,4 +25,4 @@ elif [ "${rv}" == "Reboot" ]; then
 
 else
     echo ""
-fi;
+fi

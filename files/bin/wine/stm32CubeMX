@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 exec "${HOME}/STM32CubeMX/STM32CubeMX"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 rsync -avrhtucl --progress --exclude "/media/tedi/BackPacker/.Trash-1000" --exclude "/media/tedi/BackPacker/backup" "/media/tedi/BackPacker/" "/media/tedi/Black/"
 

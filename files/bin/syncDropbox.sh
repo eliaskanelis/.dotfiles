@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ORG_DIR=/home/tedi/org
 REMOTE=dropbox
