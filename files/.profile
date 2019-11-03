@@ -35,4 +35,4 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 #
-BROWSER=command -v firefox
+export BROWSER=$(command -v firefox)

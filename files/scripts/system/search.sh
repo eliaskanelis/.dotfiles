@@ -17,7 +17,7 @@ if ! [ -x "$(command -v rofi)" ]; then
 fi
 
 # Run program
-engine=$(echo "Google Youtube StackOverflow Wikipedia Reddit" | tr " " "\n" | rofi -dmenu -theme arthur -p "Engine: "  )
+engine=$(echo "Google Youtube StackOverflow Github Wikipedia Reddit" | tr " " "\n" | rofi -dmenu -theme arthur -p "Engine: "  )
 
 if [ "${engine}" == "Google" ]; then
     choice=$(rofi -dmenu -theme arthur -p "Google: "  )
@@ -34,6 +34,10 @@ elif [ "${engine}" == "StackOverflow" ]; then
 elif [ "${engine}" == "Wikipedia" ]; then
     choice=$(rofi -dmenu -theme arthur -p "Wikipedia: "  )
     ${BROWSER} https://www.wikipedia.org/wiki/Special:Search?search="${choice}"
+
+elif [ "${engine}" == "Github" ]; then
+    choice=$(rofi -dmenu -theme arthur -p "Github: "  )
+    ${BROWSER} https://github.com/search?q="${choice}"
 
 elif [ "${engine}" == "Reddit" ]; then
     choice=$(rofi -dmenu -theme arthur -p "Reddit: "  )
