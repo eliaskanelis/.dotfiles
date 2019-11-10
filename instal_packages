@@ -2,6 +2,7 @@
 
 # Terminal
 sudo apt-get install -y rxvt-unicode-256color
+sudo apt-get install -y tmux
 
 # System admin tools
 sudo apt-get install -y parted
@@ -40,15 +41,19 @@ sudo apt-get install -y fonts-powerline
 sudo apt-get install -y hugo
 sudo apt-get install -y python3-pygments
 
-# Developer
-sudo apt-get install -y g++
+# Programmer
+sudo apt-get install -y build-essential
 sudo apt-get install -y automake autoconf libtool
-sudo apt-get install -y git
+sudo apt-get install -y g++
 sudo apt-get install -y exuberant-ctags
 sudo apt-get install -y global
-sudo apt-get install -y texlive-full
-sudo apt-get install -y tmux
 sudo apt-get install -y doxygen
+sudo apt-get install -y texlive-full
+sudo apt-get install -y picocom
+sudo apt-get install -y graphviz
+
+# Git
+sudo apt-get install -y git
 
 # Emacs
 sudo apt-get install -y emacs
