@@ -32,6 +32,9 @@ bindsym XF86Calculator exec --no-startup-id ~/scripts/run/calculator.sh
 # Run file manager
 bindsym $mod+m exec --no-startup-id ~/scripts/run/fileManager.sh
 
+# Read a manpage
+bindsym $mod+a exec --no-startup-id ~/scripts/tools/viewManPage.sh
+
 ################################################################################
 # System #######################################################################
 ################################################################################
@@ -323,9 +326,12 @@ assign [class="Nemo"] $ws_home_name
 # STARTUP ######################################################################
 ################################################################################
 
-exec --no-startup-id  ~/scripts/display/useOnlyExternal.sh
-exec --no-startup-id feh --bg-max ~/.wallpaper.png
-exec --no-startup-id nm-applet
+exec_--no-startup-id ~/scripts/display/useOnlyExternal.sh
+exec_--no-startup-id nm-applet
 
 # Change keyboard layout
-exec "setxkbmap -option 'grp:alt_shift_toggle' -layout us,gr -variant qwerty"
+exec_--no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout us,gr -variant qwerty"
+
+exec_--no-startup-id xrdb ~/.Xresources
+exec_--no-startup-id wal -n -i ~/.wallpaper.png
+exec_--no-startup-id feh --bg-max ~/.wallpaper.png

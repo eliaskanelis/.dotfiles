@@ -9,7 +9,7 @@ if ! [ -x "$(command -v rofi)" ]; then
 fi
 
 # Run program
-rv=$(echo "Shutdown Lock Logout Reboot" | tr " " "\n" | rofi -dmenu -theme arthur -p "Power options"  )
+rv=$(echo "Shutdown Lock Logout Reboot" | tr " " "\n" | rofi -dmenu -theme "system" -p "Power options"  )
 
 if [ "${rv}" == "Shutdown" ]; then
     bash ~/scripts/system/shutdown.sh

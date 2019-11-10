@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/env/ bash
+
+# Terminal
+sudo apt-get install -y rxvt-unicode-256color
 
 # System admin tools
 sudo apt-get install -y parted
@@ -6,6 +9,8 @@ sudo apt-get install -y gparted
 sudo apt-get install -y ranger
 sudo apt-get install -y nemo
 sudo apt-get install -y dunst
+sudo apt-get install -y rofi
+sudo apt-get install -y neofetch
 
 # Tools
 sudo apt-get install -y wget
@@ -24,6 +29,7 @@ sudo apt-get install -y xclip
 sudo apt-get install -y screen
 sudo apt-get install -y ipython3
 sudo apt-get install -y rlwrap
+sudo apt-get install -y espeak
 
 # ZSH
 sudo apt-get install -y zsh
@@ -77,3 +83,8 @@ sudo apt-get install -y libsdl2-mixer-dev
 sudo apt-get install -y virtualbox
 sudo apt-get install -y virtualbox-qt
 sudo apt-get install -y virtualbox-guest-additions-iso
+
+# Ricing
+sudo apt-get install -y feh
+sudo apt-get install -y imagemagick
+pip3 install --user pywal

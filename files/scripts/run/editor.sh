@@ -2,4 +2,10 @@
 
 # Run emacs
 
-emacsclient -create-frame --alternate-editor= $1
+file="${1}"
+
+if [[ -z "${file}" ]]; then
+    emacsclient -create-frame --alternate-editor=
+else
+    emacsclient -create-frame --alternate-editor= "${file}"
+fi

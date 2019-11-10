@@ -1,0 +1,39 @@
+!! URxvt Appearance
+!URxvt.font: xft:SourceCodePro+Powerline+Awesome:style=Regular:size=8
+!URxvt.boldFont: xft:SourceCodePro+Powerline+Awesome:style=Bold:size=8
+!URxvt.italicFont: xft:SourceCodePro+Powerline+Awesome:style=Italic:size=8
+!URxvt.boldItalicfont: xft:SourceCodePro+Powerline+Awesome:style=Bold Italic:size=8
+URxvt*font: xft:SourceCodePro+Powerline+Awesome Regular:pixelsize=13:antialias=true:hinting=true,xft:SourceCodePro+Powerline+Awesome+Regular:pixelsize=13:antialias=true:hinting=true:minspace=False
+URxvt*boldFont: xft:SourceCodePro+Powerline+Awesome Regular:pixelsize=13:antialias=true:hinting=true,xft:SourceCodePro+Powerline+Awesome+Regular:pixelsize=13:antialias=true:hinting=true:minspace=False
+URxvt*italicFont: xft:SourceCodePro+Powerline+Awesome Regular:pixelsize=13:antialias=true:hinting=true,xft:SourceCodePro+Powerline+Awesome+Regular:pixelsize=13:antialias=true:hinting=true:minspace=False
+URxvt*boldItalicfont: xft:SourceCodePro+Powerline+Awesome Regular:pixelsize=13:antialias=true:hinting=true,xft:SourceCodePro+Powerline+Awesome+Regular:pixelsize=13:antialias=true:hinting=true:minspace=False
+
+URxvt.letterSpace: 1
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 2
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 256
+URxvt.iso14755: false
+
+URxvt*transparent: true
+URxvt*shading: 10
+!URxvt*tintColor: #203050
+!URxvt*shading: 45
+
+!! Copy paste
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+
+!! View
+!URxvt.keysym.Control-u:  resize-font:smaller
+!URxvt.keysym.Control-d:  resize-font:bigger
+
+#include "/home/tedi/.cache/wal/colors.Xresources"

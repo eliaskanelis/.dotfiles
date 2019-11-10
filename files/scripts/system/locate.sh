@@ -9,4 +9,4 @@ if ! [ -x "$(command -v rofi)" ]; then
 fi
 
 # Run program
-locate home media | rofi -threads 0 -width 100 -dmenu -i -p "locate" -theme arthur | xargs -r -0 xdg-open
+locate home media | rofi -threads 0 -width 100 -dmenu -i -p "locate" -theme "system" | xargs -r -0 xdg-open

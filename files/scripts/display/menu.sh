@@ -2,7 +2,7 @@
 
 # Select menu
 
-rv=$(echo "Internal External Both" | tr " " "\n" | rofi -dmenu -theme arthur -p "Screen"  )
+rv=$(echo "Internal External Both" | tr " " "\n" | rofi -dmenu -theme "system" -p "Screen"  )
 
 if [ "${rv}" == "Internal" ]; then
     bash ~/scripts/display/useOnlyInternal.sh

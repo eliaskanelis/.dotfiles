@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/tedi/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -72,10 +72,13 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Emacs keybindings
+bindkey -e
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -83,6 +86,8 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
     export EDITOR='emacsclient -create-frame --alternate-editor='
 fi
+
+export VISUAL='emacsclient -create-frame --alternate-editor='
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -95,15 +100,6 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias zshconfig="e ~/.zshrc"
-alias ohmyzsh="e ~/.oh-my-zsh"
-
-#alias ed="emacs --daemon"
-#alias e="emacsclient -create-frame --alternate-editor="emacs""
-
-#alias pgrep="ps -aux | grep"
-
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
@@ -117,5 +113,16 @@ export PC_LINT_DIR="${HOME}/opt/Pc-lint"
 #    tmux attach -t TMUX || tmux new -s TMUX -c "$PWD"
 #fi
 
-# Emacs keybindings
-bindkey -e
+neofetch
+
+########################################################
+# Indepentant of zsh ###################################
+#
+#
+
+# Load wal colors if they exist
+if [[ -f "${HOME}/.cache/wal/colors.sh" ]]; then
+    . "${HOME}/.cache/wal/colors.sh"
+fi
+
+export GTK2_RC_FILES=${HOME}/.gtkrc-2.0
