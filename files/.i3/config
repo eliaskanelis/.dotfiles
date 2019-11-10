@@ -326,12 +326,12 @@ assign [class="Nemo"] $ws_home_name
 # STARTUP ######################################################################
 ################################################################################
 
-exec_--no-startup-id ~/scripts/display/useOnlyExternal.sh
-exec_--no-startup-id nm-applet
+exec --no-startup-id ~/scripts/display/useOnlyExternal.sh
+exec --no-startup-id nm-applet
 
 # Change keyboard layout
-exec_--no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout us,gr -variant qwerty"
+exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout us,gr -variant qwerty"
 
-exec_--no-startup-id xrdb ~/.Xresources
-exec_--no-startup-id wal -n -i ~/.wallpaper.png
-exec_--no-startup-id feh --bg-max ~/.wallpaper.png
+exec --no-startup-id xrdb ~/.Xresources
+exec --no-startup-id wal -n -i ~/.wallpaper.png
+exec --no-startup-id feh --bg-max ~/.wallpaper.png

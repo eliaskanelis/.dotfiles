@@ -37,3 +37,10 @@ URxvt.keysym.Control-Meta-v: builtin-string:
 !URxvt.keysym.Control-d:  resize-font:bigger
 
 #include "/home/tedi/.cache/wal/colors.Xresources"
+
+!! Rofi
+rofi.terminal:		urxvt
+rofi.ssh-client:	ssh
+rofi.ssh-command:	{terminal} -e {ssh-client} {host}
+rofi.run-command:	{cmd}
+rofi.run-shell-command:	{terminal} -e {cmd}
