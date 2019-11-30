@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# Run ranger
+# Run file manager
+
+#fileManager=ranger
+fileManager=nemo
 
 # Check if tool is available
 if ! [ -x "$(command -v i3-sensible-terminal)" ]; then
@@ -8,10 +11,11 @@ if ! [ -x "$(command -v i3-sensible-terminal)" ]; then
     exit 1
 fi
 
-if ! [ -x "$(command -v ranger)" ]; then
-    notify-send -u critical -i "notification-message-IM" "Ranger is not installed"
+if ! [ -x "$(command -v ${fileManager})" ]; then
+    notify-send -u critical -i "notification-message-IM" "${fileManager} is not installed"
     exit 1
 fi
 
 # Run app
-i3-sensible-terminal -e ranger
+#i3-sensible-terminal -e ${fileManager}
+${fileManager} ${HOME}/Desktop/

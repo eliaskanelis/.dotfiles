@@ -5,6 +5,7 @@ sudo apt-get install -y rxvt-unicode-256color
 sudo apt-get install -y tmux
 
 # System admin tools
+sudo apt-get install -y stow
 sudo apt-get install -y parted
 sudo apt-get install -y gparted
 sudo apt-get install -y ranger
@@ -51,6 +52,7 @@ sudo apt-get install -y doxygen
 sudo apt-get install -y texlive-full
 sudo apt-get install -y picocom
 sudo apt-get install -y graphviz
+sudo apt-get install -y meld
 
 # Git
 sudo apt-get install -y git

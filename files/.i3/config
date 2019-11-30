@@ -320,7 +320,7 @@ bar {
 assign [class="Firefox"] $ws_web_name
 assign [class="Thunderbird"] $ws_email_name
 #assign [class="Emacs"] $ws_develop_name
-assign [class="Nemo"] $ws_home_name
+#assign [class="Nemo"] $ws_home_name
 
 ################################################################################
 # STARTUP ######################################################################

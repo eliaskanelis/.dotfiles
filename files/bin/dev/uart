@@ -3,8 +3,8 @@
 # connect
 
 # Usage:
-# $ connect -d <device> -s <speed>
-# Example: connect -d /dev/ttyS0 -s 9600
+# $ uart -d <device> -s <speed>
+# Example: uart -d /dev/ttyS0 -s 9600
 
 # Get arguments
 while getopts d:s: option
@@ -33,12 +33,6 @@ fi
 if [ $? -ne 0 ]; then
     echo "Error: 'Speed MUST be a number"
     exit 1
-fi
-
-# Check that nc is installed
-if ! [ -x "$(command -v rlwrap)" ]; then
-  echo 'Error: rlwrap is not installed.' >&2
-  exit 1
 fi
 
 # Trap signals
@@ -71,6 +65,8 @@ while true
 do
     read cmd
     echo "$cmd" > ${device}
+    #echo -ne "AT+RST\r\n" > ${device}
+    #echo -ne "$cmd" > ${device}
 done
 
 # Terminate background read process
