@@ -1,0 +1,26 @@
+# Standard emacs
+alias emacs="emacs-26.3"
+
+alias e="emacsclient -t -create-frame --alternate-editor="
+alias em="emacsclient -create-frame --alternate-editor="
+
+# ZSH
+alias zshconfig="e ~/.zshrc"
+alias ohmyzsh="e ~/.oh-my-zsh"
+
+# Tools
+alias pgrep="ps -aux | grep"
+
+alias ccat="highlight --force --out-format=ansi"
+
+alias bashconfig="e ~/.bashrc"
+
+alias setclip="xclip -selection c"
+alias getclip="xclip -selection c -o"
+
+alias webGet="wget --random-wait -r -p -e robots=off -U mozilla "
+
+alias weather="curl v2.wttr.in/thessaloniki"
+alias moon="curl wttr.in/Moon"
+
+alias esreak="espeak -g 10 -k 20 -s 150 -p -1 -ven+f4 "

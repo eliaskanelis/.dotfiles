@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-egrep -nr -Rw --color $1 .

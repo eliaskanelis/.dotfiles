@@ -1,15 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PROJPATH="$(cd "$(dirname "$0")"; pwd)"
-echo "Project directory is ${PROJPATH}"
-echo ""
+echo "Unlinking dotfiles from '${PROJPATH}'"
 
-# Create sympolic links for every file or directory inside files directory
-FILES=$(find "${PROJPATH}/files/" -mindepth 1 -maxdepth 1 -name '*' -exec basename {} \;)
-
-IFS=$'\n'       # make newlines the only separator
-for FILE in ${FILES}
-do
-    echo "UNLINKING: ${PROJPATH}/files/${FILE} -> ${HOME}/${FILE}"
-    rm -rf "${HOME}/${FILE}"
+for i in $(ls -d "${PROJPATH}"/*/); do
+    package="${i#${PROJPATH}/}"
+    package="${package%/}"
+    echo "Uninstalling '${package}'"
+    stow -d ${PROJPATH} -t ${HOME} -D "${package}"
 done
+
+echo "Done"
+exit 0

@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-wine "${HOME}/.wine/drive_c/Keil_v5/UV4/UV4.exe"

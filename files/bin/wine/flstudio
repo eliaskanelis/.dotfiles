@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-wine "${HOME}/.wine/drive_c/Program Files (x86)/Image-Line/FL Studio 12/FL64.exe"

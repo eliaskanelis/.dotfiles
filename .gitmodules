@@ -1,18 +1,18 @@
-[submodule ".emacs.d"]
-	path = files/.emacs.d
-	url = https://github.com/TediCreations/.emacs.d.git
-[submodule ".oh-my-zsh"]
-	path = files/.oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "PC Lint Config"]
-	path = files/opt/Pc-lint/config
-	url = https://github.com/GimpelSoftware/config.git
-[submodule "cpputest"]
-	path = files/opt/cpputest
-	url = https://github.com/cpputest/cpputest.git
-[submodule "qpc"]
-	path = files/opt/Quantum_Leaps/qpc
-	url = https://github.com/QuantumLeaps/qpc.git
-[submodule "qptools"]
-	path = files/opt/Quantum_Leaps/qtools
-	url = https://github.com/QuantumLeaps/qtools.git
+[submodule "emacs/.emacs.d"]
+	path = emacs/.emacs.d
+	url = git@github.com:TediCreations/.emacs.d.git
+[submodule "zsh/.oh-my-zsh"]
+	path = zsh/.oh-my-zsh
+	url = git@github.com:ohmyzsh/ohmyzsh.git
+[submodule "core/opt/Pc-lint/config"]
+	path = core/opt/Pc-lint/config
+	url = git@github.com:GimpelSoftware/config.git
+[submodule "core/opt/cpputest"]
+	path = core/opt/cpputest
+	url = git@github.com:cpputest/cpputest.git
+[submodule "core/opt/Quantum_Leaps/qpc"]
+	path = core/opt/Quantum_Leaps/qpc
+	url = git@github.com:QuantumLeaps/qpc.git
+[submodule "core/opt/Quantum_Leaps/qtools"]
+	path = core/opt/Quantum_Leaps/qtools
+	url = git@github.com:QuantumLeaps/qtools.git

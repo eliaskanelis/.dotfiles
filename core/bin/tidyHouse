@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+DESTINATION_DIR=${HOME}/fuck/
+
+mkdir -p ${DESTINATION_DIR}
+
+
+
+mv ".adobe" ${DESTINATION_DIR}
+mv ".arm" ${DESTINATION_DIR}
+mv ".audacity-data" ${DESTINATION_DIR}
+mv ".dmrc" ${DESTINATION_DIR}
+mv ".dropbox" ${DESTINATION_DIR}
+mv "Dropbox" ${DESTINATION_DIR}
+mv ".dropbox-dist" ${DESTINATION_DIR}
+mv ".eclipse" ${DESTINATION_DIR}
+mv ".gdfuse" ${DESTINATION_DIR}
+mv ".google-cookie" ${DESTINATION_DIR}
+mv ".ICEautrority" ${DESTINATION_DIR}
+mv ".ipython" ${DESTINATION_DIR}
+mv ".java" ${DESTINATION_DIR}
+mv ".macromedia" ${DESTINATION_DIR}
+mv ".mbed" ${DESTINATION_DIR}
+mv ".multibootusb" ${DESTINATION_DIR}
+mv ".nc_history" ${DESTINATION_DIR}
+mv ".newsrc-dribble" ${DESTINATION_DIR}
+mv ".p2" ${DESTINATION_DIR}
+mv ".pki" ${DESTINATION_DIR}
+mv ".rpmdb" ${DESTINATION_DIR}
+mv ".selected_editor" ${DESTINATION_DIR}
+mv ".sqlite_history" ${DESTINATION_DIR}

@@ -1,16 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PROJPATH="$(cd "$(dirname "$0")"; pwd)"
-echo "Project directory is ${PROJPATH}"
-echo ""
+echo "Linking dotfiles from '${PROJPATH}'"
 
-# Create sympolic links for every file or directory inside files directory
-FILES=$(find "${PROJPATH}/files/" -mindepth 1 -maxdepth 1 -name '*' -exec basename {} \;)
+mkdir -p ${HOME}/.config
+mkdir -p ${HOME}/.local
+mkdir -p ${HOME}/.local/share
+#STOW_FLAGS=--no-folding
 
-IFS=$'\n'       # make newlines the only separator
-for FILE in ${FILES}
-do
-    echo "LINKING: ${PROJPATH}/files/${FILE} -> ${HOME}/${FILE}"
-    rm -rf "${HOME}/${FILE}"
-    ln -sf "${PROJPATH}/files/${FILE}" "${HOME}/${FILE}"
+for i in $(ls -d "${PROJPATH}"/*/); do
+#for i in $(ls -d */); do
+    package="${i#${PROJPATH}/}"
+    package="${package%/}"
+    echo "Installing '${package}'"
+    stow ${STOW_FLAGS} -d ${PROJPATH} -t ${HOME} -S ${package}
 done
+
+echo "Done"
+exit 0

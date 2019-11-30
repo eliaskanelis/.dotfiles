@@ -1,0 +1,8 @@
+[Nemo Action]
+Active=true
+Name=Edit
+Comment=Open file as text in the editor.
+Exec=/home/tedi/scripts/run/editor.sh %F
+Icon-Name=emacs
+Selection=E
+Extensions=any
