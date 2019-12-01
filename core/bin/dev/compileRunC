@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Compiles a c source file and runs it
+# Usage: compileRunC main.c
+
+# Variables
+sourcefile="$1"
+output=/var/tmp/compile-and-run-c.$USER
+
+# Check if file exists
+if [ -z ${sourcefile} ] ; then
+    echo "ERROR: Missing c source file"
+    exit 1
+fi
+
+# Compile and run
+rm -f ${output} && gcc -o ${output} $1 && ${output}

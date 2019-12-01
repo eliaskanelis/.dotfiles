@@ -11,6 +11,16 @@
 	<directories/>
 </action>
 <action>
+	<icon>utilities-x-terminal</icon>
+	<name>Run script</name>
+	<unique-id>1575235481761629-15</unique-id>
+	<command>/home/tedi/scripts/run/runScript.sh %f</command>
+	<description>Run script in terminal</description>
+	<patterns>*</patterns>
+	<other-files/>
+	<text-files/>
+</action>
+<action>
 	<icon>emacs</icon>
 	<name>Edit</name>
 	<unique-id>1575224888566499-1</unique-id>
@@ -41,6 +51,15 @@
 	<patterns>*</patterns>
 	<directories/>
 	<other-files/>
+	<text-files/>
+</action>
+<action>
+	<icon>run-build</icon>
+	<name>Compile and run</name>
+	<unique-id>1575233199035355-5</unique-id>
+	<command>urxvt -hold -e /home/tedi/bin/dev/compileRunC %f</command>
+	<description>Compile and run source code in terminal</description>
+	<patterns>*.c</patterns>
 	<text-files/>
 </action>
 </actions>
