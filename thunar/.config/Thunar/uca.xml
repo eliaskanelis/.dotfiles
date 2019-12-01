@@ -1,0 +1,46 @@
+<?xml encoding="UTF-8" version="1.0"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1575223497311294-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>emacs</icon>
+	<name>Edit</name>
+	<unique-id>1575224888566499-1</unique-id>
+	<command>/home/tedi/scripts/run/editor.sh %f</command>
+	<description>Open file in text editor</description>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+	<text-files/>
+</action>
+<action>
+	<icon>meld</icon>
+	<name>Compare later</name>
+	<unique-id>1575226206872220-7</unique-id>
+	<command>/home/tedi/scripts/tools/compare.sh save %f</command>
+	<description>Save selection for compare</description>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+	<text-files/>
+</action>
+<action>
+	<icon>meld</icon>
+	<name>Compare with saved element</name>
+	<unique-id>1575226201854406-6</unique-id>
+	<command>/home/tedi/scripts/tools/compare.sh compare %f</command>
+	<description>Compare with saved file or directory</description>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+	<text-files/>
+</action>
+</actions>

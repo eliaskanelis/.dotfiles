@@ -8,11 +8,18 @@ sudo apt-get install -y tmux
 sudo apt-get install -y stow
 sudo apt-get install -y parted
 sudo apt-get install -y gparted
-sudo apt-get install -y ranger
-sudo apt-get install -y nemo
 sudo apt-get install -y dunst
 sudo apt-get install -y rofi
 sudo apt-get install -y neofetch
+
+# File manager
+sudo apt-get install -y ranger
+sudo apt-get install -y thunar
+sudo apt-get install -y thunar-data
+sudo apt-get install -y thunar-gtkhash
+sudo apt-get install -y thunar-archive-plugin
+sudo apt-get install -y thunar-media-tags-plugin
+sudo apt-get install -y thunar-volman
 
 # Tools
 sudo apt-get install -y wget

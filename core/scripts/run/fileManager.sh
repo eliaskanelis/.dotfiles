@@ -3,7 +3,8 @@
 # Run file manager
 
 #fileManager=ranger
-fileManager=nemo
+#fileManager=nemo
+fileManager=thunar
 
 # Check if tool is available
 if ! [ -x "$(command -v i3-sensible-terminal)" ]; then
