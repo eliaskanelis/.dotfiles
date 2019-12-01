@@ -67,12 +67,7 @@ sudo apt-get install -y git
 # Emacs
 sudo apt-get install -y emacs
 
-# Embedded
-sudo apt-get install -y i2c-tools
-sudo apt-get install -y ser2net
-sudo apt-get install -y gpiod
-
-# Mocking
+# Embedded Mocking
 sudo apt-get install -y ser2net
 sudo apt-get install -y gpiod
 sudo apt-get install -y i2c-tools
@@ -101,4 +96,3 @@ sudo apt-get install -y virtualbox-guest-additions-iso
 # Ricing
 sudo apt-get install -y feh
 sudo apt-get install -y imagemagick
-pip3 install --user pywal
