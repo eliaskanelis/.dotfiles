@@ -1,1 +1,4 @@
 *.pyc
+
+# Thunar auto-generated file
+thunar/.config/Thunar/accels.scm
