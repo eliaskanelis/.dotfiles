@@ -62,4 +62,55 @@
 	<patterns>*.c</patterns>
 	<text-files/>
 </action>
+<action>
+	<icon>format-indent-less-rtl</icon>
+	<name>Indent</name>
+	<unique-id>1575732979634027-8</unique-id>
+	<command>astyle %f</command>
+	<description>Indent C code</description>
+	<patterns>*.c;*.h;*.cpp</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon>draw-path</icon>
+	<name>Copy current path</name>
+	<unique-id>1575733741840634-9</unique-id>
+	<command>echo -n %f | xclip -selection &quot;clipboard&quot;</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>gnome-dev-memory</icon>
+	<name>Estimated space usage</name>
+	<unique-id>1575733946025719-10</unique-id>
+	<command>du -chs --apparent-size %N | zenity --text-info</command>
+	<description>Estimated Space Usage</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>emblem-symbolic-link</icon>
+	<name>Create symlink</name>
+	<unique-id>1575734947754561-17</unique-id>
+	<command>ln -s %f Link_to_%n</command>
+	<description>Create Symlink</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
 </actions>
