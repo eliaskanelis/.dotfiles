@@ -56,3 +56,6 @@
 
 # Force use of linux (LF) specified line end style.
 --lineend=linux
+
+# Do not make a backup
+--suffix=none
