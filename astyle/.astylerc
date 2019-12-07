@@ -1,0 +1,58 @@
+# Use broken braces
+#--style=allman
+--style=break
+
+# Indent using tabs for indentation, and spaces for continuation line alignment
+--indent=tab=8
+
+# Indent 'class' and 'struct' blocks so that the entire block is indented.
+--indent-classes
+
+# Indent 'switch' blocks so that the 'case X:' statements are indented in the switch block. The entire case block is indented.
+--indent-switches
+
+# Add extra indentation to namespace blocks.
+--indent-namespaces
+
+# Indent preprocessor blocks at brace level zero and immediately within a namespace.
+--indent-preproc-block
+
+# Indent C++ comments beginning in column one. By default C++ comments beginning in column one are assumed to be commented‑out code and not indented. This option will allow the comments to be indented with the code.
+--indent-col1-comments
+
+# Pad empty lines around header blocks (e.g. 'if', 'for', 'while'...).
+--break-blocks
+
+# Insert space padding around operators. This will also pad commas. Any end of line comments will remain in the original column, if possible. Note that there is no option to unpad. Once padded, they stay padded.
+--pad-oper
+
+# Insert space padding after commas.
+--pad-comma
+
+# Remove extra space padding around parens on the inside and outside.
+--unpad-paren
+
+# Insert space padding around paren on the inside only.
+--pad-paren-in
+
+# Delete empty lines within a function or method. Empty lines outside of functions or methods are NOT deleted. If used with break-blocks or break-blocks=all it will delete all lines EXCEPT the lines added by the break-blocks options.
+--delete-empty-lines
+
+# Attach a pointer or reference operator (*, &, or ^) to either the variable type (left) or variable name (right), or place it between the type and name (middle). 
+--align-pointer=name
+
+# Add braces to unbraced one line conditional statements (e.g. 'if', 'for', 'while'...).
+--add-braces
+
+# Attach the return type to the function name. The two options are for the function definitions (-xf), and the function declarations or signatures (-xh).
+--attach-return-type
+--attach-return-type-decl
+
+# Break a line if the code exceeds # characters.
+--max-code-length=80
+
+# Logical conditionals will be placed last on the previous line. This option has no effect without max‑code‑length.
+--break-after-logical
+
+# Force use of linux (LF) specified line end style.
+--lineend=linux

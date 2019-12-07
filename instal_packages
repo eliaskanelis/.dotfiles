@@ -60,6 +60,7 @@ sudo apt-get install -y texlive-full
 sudo apt-get install -y picocom
 sudo apt-get install -y graphviz
 sudo apt-get install -y meld
+sudo apt-get install -y astyle
 
 # Git
 sudo apt-get install -y git
