@@ -104,7 +104,7 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
-export CPPUTEST_DIR="${HOME}/opt/cpputest"
+#export CPPUTEST_DIR="${HOME}/opt/cpputest/"
 export PC_LINT_DIR="${HOME}/opt/Pc-lint"
 
 # Connect to a session called TMUX when you launch terminal.

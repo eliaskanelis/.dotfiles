@@ -12,14 +12,18 @@ sudo apt-get install -y dunst
 sudo apt-get install -y rofi
 sudo apt-get install -y neofetch
 
-# File manager
+# Ranger
 sudo apt-get install -y ranger
+
+# Thunar
 sudo apt-get install -y thunar
 sudo apt-get install -y thunar-data
 sudo apt-get install -y thunar-gtkhash
 sudo apt-get install -y thunar-archive-plugin
 sudo apt-get install -y thunar-media-tags-plugin
 sudo apt-get install -y thunar-volman
+sudo apt-get install -y thumbler
+sudo apt-get install -y thumbler-plugins-extra
 
 # Tools
 sudo apt-get install -y wget
