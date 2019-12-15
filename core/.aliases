@@ -11,6 +11,7 @@ alias zshconfig="e ~/.zshrc"
 alias bashconfig="e ~/.bashrc"
 
 # Tools
+alias copy="rsync -avrxHAX --progress"
 alias pgrep="ps -aux | grep"
 alias ccat="highlight --force --out-format=ansi"
 
