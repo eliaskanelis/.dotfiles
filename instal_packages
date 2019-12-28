@@ -43,6 +43,7 @@ sudo apt-get install -y screen
 sudo apt-get install -y ipython3
 sudo apt-get install -y rlwrap
 sudo apt-get install -y espeak
+sudo apt-get install -y rclone
 
 # ZSH
 sudo apt-get install -y zsh

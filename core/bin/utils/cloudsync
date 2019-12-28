@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Synchonizes the source file or directory (only update the destination )
+# with a remote cloud destination (dropbox)
+#
+# Usage: cloudsync source remote:destination
+#
+
+SOURCE=$1
+DESTINATION=$2
+
+CONFIGFILE=${HOME}/.rclone.conf
+
+# Check for config file
+if [ ! -f ${CONFIGFILE} ]; then
+    echo "Config file for rclone is missing!"
+    exit 1
+fi
+
+# Check for source file
+if [ ! -e ${SOURCE} ]; then
+    echo "Please provide a valid source file or dir!"
+    exit 1
+fi
+
+# Check for destination file
+if [ ! "${DESTINATION}" != "" ]; then
+    echo "Please provide a destination!"
+    exit 1
+# Check for the existance of : character
+elif [[ "${DESTINATION}" != *":"* ]]; then
+    echo "Destination is not valid!"
+    exit 1
+fi
+
+# Sync( change only destination ) excluding the hidden files and folders
+/usr/bin/rclone --config ${CONFIGFILE} sync -v --exclude '.*{/**,}' ${SOURCE} ${DESTINATION}
