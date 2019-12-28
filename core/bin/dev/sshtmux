@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Usage: sshtmux user@host
+#
+
+ssh -t "$1" tmux new-session -A -s main
