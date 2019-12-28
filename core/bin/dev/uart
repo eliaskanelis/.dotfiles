@@ -35,27 +35,38 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Backup tty settings
+tty_settings=$(stty -F "${device}" -g)
+catPid="nil"
+
 # Trap signals
 cleanup()
 {
+    echo -e "\n"
+
+    # Restore tty settings
+    stty -F "${device}" "${tty_settings}"
+
     # Kill cat
-    kill $catPid
+    kill -9 "${catPid}"
 
     echo -e "Done"
     exit 0
 }
 
-trap cleanup 1 2 3 6 9
+trap cleanup 1 2 3 6
 
 # Set up device
-stty -F ${device} ${speed}> /dev/null 2>&1
+#echo -ne "TTY SETTINGS\n${tty_settings}"
+#stty -F ${device} ${speed}> /dev/null 2>&1
+stty igncr onlret cs8 -cstopb -parenb -brkint -F "${device}" ${speed} -echo -echoe -echok > /dev/null 2>&1
 if [ "$?" -ne 0 ]; then
     echo "Please specify different speed!"
     exit 1
 fi
 
 # Let cat read the device $1 in the background
-cat ${device} &
+cat "${device}" &
 
 # Capture PID of background process so it is possible to terminate it when done
 catPid=$!
@@ -63,13 +74,14 @@ catPid=$!
 # Sent commands
 while true
 do
-    read cmd
-    echo "$cmd" > ${device}
-    #echo -ne "AT+RST\r\n" > ${device}
-    #echo -ne "$cmd" > ${device}
+    read -r cmd
+    #echo -ne "$cmd" > "${device}"
+    #echo -ne "$cmd\r" > "${device}"
+    echo -ne "$cmd\n" > "${device}"
+    #echo -ne "$cmd\r\n" > "${device}"
 done
 
-# Terminate background read process
-kill $catPid
+# Cleanup
+cleanup
 
 exit 0
