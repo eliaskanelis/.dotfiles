@@ -2,9 +2,11 @@
 
 # Run tmux
 
+TERMINAL=/usr/bin/urxvt
+
 # Check if tool is available
-if ! [ -x "$(command -v i3-sensible-terminal)" ]; then
-    notify-send -u critical -i "notification-message-IM" "i3-sensible-terminal is not installed"
+if ! [ -x "$(command -v ${TERMINAL})" ]; then
+    notify-send -u critical -i "notification-message-IM" "${TERMINAL} is not installed"
     exit 1
 fi
 
@@ -14,4 +16,4 @@ if ! [ -x "$(command -v tmux)" ]; then
 fi
 
 # Run app
-i3-sensible-terminal -e tmux
+${TERMINAL} -e tmux
