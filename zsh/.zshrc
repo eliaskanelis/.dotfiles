@@ -107,6 +107,8 @@ fi
 #export CPPUTEST_DIR="${HOME}/opt/cpputest/"
 export PC_LINT_DIR="${HOME}/opt/Pc-lint"
 
+export PATH=${HOME}/opt/gcc-arm-none-eabi/bin:$PATH''
+
 # Connect to a session called TMUX when you launch terminal.
 #if [ -z "$TMUX" ]
 #then
@@ -126,3 +128,21 @@ if [[ -f "${HOME}/.cache/wal/colors.sh" ]]; then
 fi
 
 export GTK2_RC_FILES=${HOME}/.gtkrc-2.0
+
+########################################################
+# Automatic virtual environment ########################
+#
+#
+
+function cd() {
+    if [[ -d ./venv ]] ; then
+	deactivate
+    fi
+
+    builtin cd $1
+
+    if [[ -d ./venv ]] ; then
+	. ./venv/bin/activate
+	#source <(inv --print-completion-script zsh)
+    fi
+}
