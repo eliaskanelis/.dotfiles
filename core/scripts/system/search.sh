@@ -17,7 +17,7 @@ if ! [ -x "$(command -v rofi)" ]; then
 fi
 
 # Run program
-engine=$(echo "Google Youtube StackOverflow Github Wikipedia ArchWiki Reddit" | tr " " "\n" | rofi -dmenu -theme "system" -p "Engine: "  )
+engine=$(echo "Google Youtube StackOverflow Github Wikipedia ArchWiki Reddit" | tr " " "\n" | rofi -dmenu -i -theme "system" -p "Engine: "  )
 
 if [ "${engine}" == "Google" ]; then
     choice=$(rofi -dmenu -theme "system" -p "Google: "  )

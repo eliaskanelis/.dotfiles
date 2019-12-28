@@ -3,7 +3,7 @@
 # Select a manpage and view on browser
 
 # Search man pages
-manPage=$(man -k . | rofi -dmenu  -theme "system" | cut -d ' ' -f 1)
+manPage=$(man -k . | rofi -dmenu -i -theme "system" | cut -d ' ' -f 1)
 
 if [ "${manPage}" == "" ]; then
    exit 1
