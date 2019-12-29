@@ -113,4 +113,18 @@
 	<text-files/>
 	<video-files/>
 </action>
+<action>
+	<icon>dropbox</icon>
+	<name>Sent to dropbox</name>
+	<unique-id>1577585107440979-6</unique-id>
+	<command>/home/tedi/scripts/tools/sentToDropbox.sh %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
 </actions>
