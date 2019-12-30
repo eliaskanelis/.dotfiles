@@ -1,4 +1,4 @@
-#!/bin/env/ bash
+#!/usr/bin/env bash
 
 # Terminal
 sudo apt-get install -y rxvt-unicode-256color

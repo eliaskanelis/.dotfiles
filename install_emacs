@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 MIRROR="ftp.cc.uoc.gr/mirrors/gnu/emacs/"
 TAR="emacs-26.3.tar.xz"
