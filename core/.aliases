@@ -15,7 +15,7 @@ alias bashconfig="e ~/.bashrc"
 
 ################################################################################
 # Virtual environment
-alias virt="virtualenv -p python3 venv"
+alias virt="virtualenv -p python3 .venv"
 
 ################################################################################
 # ls

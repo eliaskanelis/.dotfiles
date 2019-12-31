@@ -135,14 +135,14 @@ export GTK2_RC_FILES=${HOME}/.gtkrc-2.0
 #
 
 function cd() {
-    if [[ -d ./venv ]] ; then
+    if [[ -d ./.venv ]] ; then
 	deactivate
     fi
 
     builtin cd $1
 
-    if [[ -d ./venv ]] ; then
-	. ./venv/bin/activate
+    if [[ -d ./.venv ]] ; then
+	. ./.venv/bin/activate
 	#source <(inv --print-completion-script zsh)
     fi
 }
