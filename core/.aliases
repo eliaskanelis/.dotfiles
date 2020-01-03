@@ -37,4 +37,9 @@ alias webGet="wget --random-wait -r -p -e robots=off -U mozilla "
 alias weather="curl v2.wttr.in/thessaloniki"
 alias moon="curl wttr.in/Moon"
 
-alias espeak="espeak -g 10 -k 20 -s 150 -p -1 -ven+f4 "
+alias speak="espeak -g 10 -k 20 -s 150 -p -1 -ven+f4 "
+
+################################################################################
+# Updatedb
+alias myupdatedb="updatedb --require-visibility 0 -o ~/.mlocate.db -U ~ -v"
+alias mylocate="locate --database=.mlocate.db"
