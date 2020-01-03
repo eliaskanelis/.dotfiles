@@ -1,16 +1,27 @@
 #!/usr/bin/env bash
 
+# ------------------------------------------------------------------------------
 # Terminal
 sudo apt-get install -y rxvt-unicode-256color
 sudo apt-get install -y tmux
 
-# System admin tools
+# ------------------------------------------------------------------------------
+# System tools
 sudo apt-get install -y stow
 sudo apt-get install -y parted
 sudo apt-get install -y gparted
 sudo apt-get install -y dunst
 sudo apt-get install -y rofi
 sudo apt-get install -y neofetch
+sudo apt-get install -y feh
+sudo apt-get install -y imagemagick
+
+# ------------------------------------------------------------------------------
+# Emacs
+sudo apt-get install -y emacs
+
+# ------------------------------------------------------------------------------
+# Filemanager
 
 # Ranger
 sudo apt-get install -y ranger
@@ -25,6 +36,7 @@ sudo apt-get install -y thunar-volman
 sudo apt-get install -y thumbler
 sudo apt-get install -y thumbler-plugins-extra
 
+# ------------------------------------------------------------------------------
 # Tools
 sudo apt-get install -y wget
 sudo apt-get install -y tree
@@ -45,19 +57,16 @@ sudo apt-get install -y rlwrap
 sudo apt-get install -y espeak
 sudo apt-get install -y rclone
 
+# ------------------------------------------------------------------------------
 # ZSH
 sudo apt-get install -y zsh
 chsh -s $(which zsh)
 sudo apt-get install -y fonts-powerline
 
-# Hugo
-sudo apt-get install -y hugo
-sudo apt-get install -y python3-pygments
-
+# ------------------------------------------------------------------------------
 # Programmer
-sudo apt-get install -y build-essential
-sudo apt-get install -y automake autoconf libtool
-sudo apt-get install -y g++
+
+# Dev tools
 sudo apt-get install -y exuberant-ctags
 sudo apt-get install -y global
 sudo apt-get install -y doxygen
@@ -69,11 +78,28 @@ sudo apt-get install -y picocom
 sudo apt-get install -y shellcheck
 sudo apt-get install -y python3-invoke
 
+# GNU Toolchain
+sudo apt-get install -y make
+sudo apt-get install -y automake autoconf libtool
+sudo apt-get install -y build-essential
+sudo apt-get install -y gcc
+sudo apt-get install -y g++
+
 # Git
 sudo apt-get install -y git
 
-# Emacs
-sudo apt-get install -y emacs
+# Cmake
+sudo apt-get install -y cmake
+
+# llvm
+sudo apt-get install -y llvm
+
+# clang
+sudo apt-get install -y clang
+sudo apt-get install -y clang-format
+sudo apt-get install -y clang-tidy
+sudo apt-get install -y clang-tools
+sudo apt-get install -y libclang-dev
 
 # Embedded Mocking
 sudo apt-get install -y ser2net
@@ -90,17 +116,22 @@ sudo apt-get install -y python3-serial
 sudo apt-get install -y python3-pygments
 sudo apt-get install -y python3-jedi
 
+# ------------------------------------------------------------------------------
+# Libs
+
 # SDL2
 sudo apt-get install -y libsdl2-dev
 sudo apt-get install -y libsdl2-image-dev
 sudo apt-get install -y libsdl2-ttf-dev
 sudo apt-get install -y libsdl2-mixer-dev
 
+# ------------------------------------------------------------------------------
 # Virtualbox
 sudo apt-get install -y virtualbox
 sudo apt-get install -y virtualbox-qt
 sudo apt-get install -y virtualbox-guest-additions-iso
 
-# Ricing
-sudo apt-get install -y feh
-sudo apt-get install -y imagemagick
+# ------------------------------------------------------------------------------
+# Hugo
+sudo apt-get install -y hugo
+sudo apt-get install -y python3-pygments
