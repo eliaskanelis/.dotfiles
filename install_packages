@@ -1,144 +1,63 @@
 #!/usr/bin/env bash
 
-# ------------------------------------------------------------------------------
-# Terminal
-sudo apt-get install -y rxvt-unicode-256color
-sudo apt-get install -y tmux
+if [[ $EUID -ne 0 ]]; then
+    echo "This script must be run as root, use sudo $0 instead" 1>&2
+    exit 1
+fi
 
-# ------------------------------------------------------------------------------
-# System tools
-sudo apt-get install -y stow
-sudo apt-get install -y parted
-sudo apt-get install -y gparted
-sudo apt-get install -y dunst
-sudo apt-get install -y rofi
-sudo apt-get install -y neofetch
-sudo apt-get install -y feh
-sudo apt-get install -y imagemagick
+# Check that bin argument exists
+if ! [ -f "$1" ]; then
+    echo "Error: Please provide package file!"
+    exit 1
+fi
 
-# ------------------------------------------------------------------------------
-# Emacs
-sudo apt-get install -y emacs
+file="$1"
 
-# ------------------------------------------------------------------------------
-# Filemanager
+function install()
+{
+    packages="$*"
+    echo -n "Installing"
+    echo -n $'\e[1;34m'" ${packages}"$'\e[0m'
 
-# Ranger
-sudo apt-get install -y ranger
+    rv=$(apt-get install -y "${packages}" > /dev/null 2>&1;echo $?)
+    #rv=$((RANDOM % 2))
+    if [ "${rv}" != 0 ] ; then
+	echo -e $'\e[1;31m'" FAIL!"$'\e[0m'
+	exit -1
+    else
+	echo -e $'\e[1;32m'" OK"$'\e[0m'
+	return 0
+    fi
+}
+export -f install
 
-# Thunar
-sudo apt-get install -y thunar
-sudo apt-get install -y thunar-data
-sudo apt-get install -y thunar-gtkhash
-sudo apt-get install -y thunar-archive-plugin
-sudo apt-get install -y thunar-media-tags-plugin
-sudo apt-get install -y thunar-volman
-sudo apt-get install -y tumbler
-sudo apt-get install -y tumbler-plugins-extra
+function update()
+{
+    echo -n "Update"
+    rv=$(apt-get update > /dev/null 2>&1;echo $?)
+    if [ "${rv}" != 0 ] ; then
+	echo $'\e[1;31m'" FAIL!"$'\e[0m'
+	return 1
+    else
+	echo $'\e[1;32m'" OK"$'\e[0m'
+    fi
+    echo -n "Upgrade"
+    rv=$(apt-get upgrade > /dev/null 2>&1;echo $?)
+    if [ "${rv}" != 0 ] ; then
+	echo $'\e[1;31m'" FAIL!"$'\e[0m'
+	return 1
+    else
+	echo $'\e[1;32m'" OK"$'\e[0m'
+    fi
+    return 0
+}
 
-# ------------------------------------------------------------------------------
-# Tools
-sudo apt-get install -y wget
-sudo apt-get install -y tree
-sudo apt-get install -y entr
-sudo apt-get install -y sshfs
-sudo apt-get install -y youtube-dl
-sudo apt-get install -y wireshark
-sudo apt-get install -y gnucash
-sudo apt-get install -y keepassxc
-sudo apt-get install -y redshift
-sudo apt-get install -y inkscape
-sudo apt-get install -y highlight
-sudo apt-get install -y moreutils
-sudo apt-get install -y xclip
-sudo apt-get install -y screen
-sudo apt-get install -y ipython3
-sudo apt-get install -y rlwrap
-sudo apt-get install -y espeak
-sudo apt-get install -y rclone
+#update || exit 1
+#sed -e 's/[#;].*$//' -e '/^$/d' "${file}" | xargs -n 1  | sort | uniq | xargs -n 1 bash -c 'install "$@" || exit 1' - 2>/dev/null
 
-# ------------------------------------------------------------------------------
-# ZSH
-sudo apt-get install -y zsh
-chsh -s "$(which zsh)"
-sudo apt-get install -y fonts-powerline
+#grep "^# " "${file}" | sed -e 's/^#\(.*\)/\1/'
 
-# ------------------------------------------------------------------------------
-# Programmer
-
-# Dev tools
-sudo apt-get install -y exuberant-ctags
-sudo apt-get install -y global
-sudo apt-get install -y doxygen
-sudo apt-get install -y texlive-full
-sudo apt-get install -y graphviz
-sudo apt-get install -y meld
-sudo apt-get install -y astyle
-sudo apt-get install -y picocom
-sudo apt-get install -y shellcheck
-sudo apt-get install -y python3-invoke
-
-# GNU Toolchain
-sudo apt-get install -y make
-sudo apt-get install -y automake autoconf libtool
-sudo apt-get install -y build-essential
-sudo apt-get install -y gcc
-sudo apt-get install -y g++
-
-# Git
-sudo apt-get install -y git
-
-# Cmake
-sudo apt-get install -y cmake
-
-# llvm
-sudo apt-get install -y llvm
-
-# clang
-sudo apt-get install -y clang
-sudo apt-get install -y clang-format
-sudo apt-get install -y clang-tidy
-sudo apt-get install -y clang-tools
-sudo apt-get install -y libclang-dev
-
-# Embedded Mocking
-sudo apt-get install -y ser2net
-sudo apt-get install -y gpiod
-sudo apt-get install -y i2c-tools
-
-# Qemu
-sudo apt-get install -y qemu
-
-# Python
-sudo apt-get install -y python3-setuptools
-sudo apt-get install -y python3-pip
-sudo apt-get install -y python3-serial
-sudo apt-get install -y python3-pygments
-sudo apt-get install -y python3-jedi
-
-# ------------------------------------------------------------------------------
-# Libs
-
-# SDL2
-sudo apt-get install -y libsdl2-dev
-sudo apt-get install -y libsdl2-image-dev
-sudo apt-get install -y libsdl2-ttf-dev
-sudo apt-get install -y libsdl2-mixer-dev
-
-# ------------------------------------------------------------------------------
-# Virtualbox
-sudo apt-get install -y virtualbox
-sudo apt-get install -y virtualbox-qt
-sudo apt-get install -y virtualbox-guest-additions-iso
-
-# ------------------------------------------------------------------------------
-# Hugo
-sudo apt-get install -y hugo
-sudo apt-get install -y python3-pygments
+#sed -e 's/# .*$/FUCK/' -e '/^$/d' "${file}"
 
 
-# ------------------------------------------------------------------------------
-# crontab
-sudo apt-get install -y cron
-crontab -r
-crontab crontabFile
+grep "^# " "${file}" | sed -e 's/^# //' | xargs -n 1  | sort | uniq | xargs -n 1 bash -c 'install "$@" || exit 1' - 2>/dev/null

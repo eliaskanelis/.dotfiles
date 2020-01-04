@@ -1,0 +1,143 @@
+#!/usr/bin/env bash
+
+################################################################################
+####    Terminal
+# rxvt-unicode-256color
+# tmux
+
+################################################################################
+####    System tools
+# stow
+# parted
+# gparted
+# dunst
+# rofi
+# neofetch
+# feh
+# imagemagick
+
+################################################################################
+####    Emacs
+# emacs
+
+################################################################################
+####    Filemanager
+
+####    Ranger
+# ranger
+
+####    Thunar
+# thunar
+# thunar-data
+# thunar-gtkhash
+# thunar-archive-plugin
+# thunar-media-tags-plugin
+# thunar-volman
+# tumbler
+# tumbler-plugins-extra
+
+################################################################################
+####    Tools
+# wget
+# tree
+# entr
+# sshfs
+# youtube-dl
+# wireshark
+# gnucash
+# keepassxc
+# redshift
+# inkscape
+# highlight
+# moreutils
+# xclip
+# screen
+# ipython3
+# rlwrap
+# espeak
+# rclone
+
+################################################################################
+####    Shell
+# zsh
+chsh -s "$(which zsh)"
+# fonts-powerline
+
+################################################################################
+####    Programmer
+
+####    Dev tools
+# exuberant-ctags
+# global
+# doxygen
+# texlive-full
+# graphviz
+# meld
+# astyle
+# picocom
+# shellcheck
+# python3-invoke
+
+####    GNU Toolchain
+# make
+# automake autoconf libtool
+# build-essential
+# gcc
+# g++
+
+####    Git
+# git
+
+####    Cmake
+# cmake
+
+####    llvm
+# llvm
+
+####    clang
+# clang
+# clang-format
+# clang-tidy
+# clang-tools
+# libclang-dev
+
+####    Embedded Mocking
+# ser2net
+# gpiod
+# i2c-tools
+
+####    Qemu
+# qemu
+
+####    Python
+# python3-setuptools
+# python3-pip
+# python3-serial
+# python3-pygments
+# python3-jedi
+
+################################################################################
+####   Libs
+
+####    SDL2
+# libsdl2-dev
+# libsdl2-image-dev
+# libsdl2-ttf-dev
+# libsdl2-mixer-dev
+
+################################################################################
+####    Virtualbox
+# virtualbox
+# virtualbox-qt
+# virtualbox-guest-additions-iso
+
+################################################################################
+####    Hugo
+# hugo
+# python3-pygments
+
+################################################################################
+####    crontab
+# cron
+crontab -r
+crontab crontabFile
