@@ -17,6 +17,16 @@ sudo apt-get install -y feh
 sudo apt-get install -y imagemagick
 
 # ------------------------------------------------------------------------------
+# Window manager
+sudo apt-get install -y i3
+sudo apt-get install -y i3-wm
+sudo apt-get install -y i3blocls
+sudo apt-get install -y i3status
+sudo apt-get install -y i3lock-fancy
+sudo apt-get install -y compton
+sudo pip install i3ipc
+
+# ------------------------------------------------------------------------------
 # Emacs
 sudo apt-get install -y emacs
 
