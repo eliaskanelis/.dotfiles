@@ -33,8 +33,8 @@ sudo apt-get install -y thunar-gtkhash
 sudo apt-get install -y thunar-archive-plugin
 sudo apt-get install -y thunar-media-tags-plugin
 sudo apt-get install -y thunar-volman
-sudo apt-get install -y thumbler
-sudo apt-get install -y thumbler-plugins-extra
+sudo apt-get install -y tumbler
+sudo apt-get install -y tumbler-plugins-extra
 
 # ------------------------------------------------------------------------------
 # Tools
@@ -60,7 +60,7 @@ sudo apt-get install -y rclone
 # ------------------------------------------------------------------------------
 # ZSH
 sudo apt-get install -y zsh
-chsh -s $(which zsh)
+chsh -s "$(which zsh)"
 sudo apt-get install -y fonts-powerline
 
 # ------------------------------------------------------------------------------
@@ -135,3 +135,10 @@ sudo apt-get install -y virtualbox-guest-additions-iso
 # Hugo
 sudo apt-get install -y hugo
 sudo apt-get install -y python3-pygments
+
+
+# ------------------------------------------------------------------------------
+# crontab
+sudo apt-get install -y cron
+crontab -r
+crontab crontabFile

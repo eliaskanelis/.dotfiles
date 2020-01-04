@@ -1,0 +1,30 @@
+#!/usr/bin/env crontab
+
+################################################################################
+# Examples
+
+# Usage: crontab <file>
+
+#  * *  * * *    #Runs every minute
+# 30 *  * * *    #Runs at 30 minutes past the hour
+# 45 6  * * *    #Runs at 6:45 am every day
+# 45 18 * * *    #Runs at 6:45 pm every day
+# 00 1  * * 0    #Runs at 1:00 am every Sunday
+# 00 1  * * 7    #Runs at 1:00 am every Sunday
+# 00 1  * * Sun  #Runs at 1:00 am every Sunday
+# 30 8  1 * *    #Runs at 8:30 am on the first day of every month
+
+# @reboot    #Runs at boot
+# @yearly    #Runs once a year  [0 0 1 1 *]
+# @annually  #Runs once a year  [0 0 1 1 *]
+# @monthly   #Runs once a month [0 0 1 * *]
+# @weekly    #Runs once a week  [0 0 * * 0]
+# @daily     #Runs once a day   [0 0 * * *]
+# @midnight  #Runs once a day   [0 0 * * *]
+# @hourly    #Runs once an hour [0 * * * *]
+
+################################################################################
+# Tasks
+
+# For my eyes
+@reboot redshift
