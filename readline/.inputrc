@@ -1,0 +1,29 @@
+$include /etc/inputrc
+"\C-p":history-search-backward
+"\C-n":history-search-forward
+set colored-stats On
+set completion-ignore-case On
+set completion-prefix-display-length 3
+
+# Mark symlinked directories
+set mark-symlinked-directories On
+
+set show-all-if-ambiguous On
+set show-all-if-unmodified On
+
+# Append char to indicate type
+set visible-stats On
+
+
+
+
+
+
+# Note that this may cause completion text blink in some terminals (e.g. xterm).
+set colored-stats On
+
+# Color the common prefix
+set colored-completion-prefix On
+
+# Color the common prefix in menu-complete
+set menu-complete-display-prefix On
