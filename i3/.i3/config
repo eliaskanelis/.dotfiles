@@ -4,6 +4,9 @@
 # Keybindings ##################################################################
 ################################################################################
 
+# Warning: All keybindings are now implemented with sxhkbd.
+#          So they live at ~/.config/sxhkd/sxhkdrc
+
 # Mod key is START key
 set $mod Mod4
 
@@ -12,88 +15,6 @@ set $left  h
 set $down  j
 set $up    k
 set $right l
-
-################################################################################
-# Run apps #####################################################################
-################################################################################
-
-# Start a terminal session
-bindsym $mod+Return    exec ~/scripts/run/terminal.sh
-
-# Start a tmux session
-bindsym $mod+BackSpace exec ~/scripts/run/tmux.sh
-
-# Run editor
-bindsym $mod+e         exec ~/scripts/run/editor.sh
-
-# Calculator
-bindsym XF86Calculator exec ~/scripts/run/calculator.sh
-
-# Run file manager
-bindsym $mod+m         exec ~/scripts/run/fileManager.sh
-
-# Read a manpage
-bindsym $mod+a         exec ~/scripts/tools/viewManPage.sh
-
-################################################################################
-# System #######################################################################
-################################################################################
-
-# Change language layout
-bindsym $mod+F12    exec ~/scripts/system/toggle-xkbmap.sh
-
-# Shutdown, Logout, lock etc pc
-bindsym $mod+Escape exec ~/scripts/system/menu.sh
-
-# Run program launcher
-bindsym $mod+d      exec ~/scripts/system/launch.sh
-
-# Locate file or directory and open it
-bindsym $mod+z      exec ~/scripts/system/locate.sh
-
-# Locate file or directory and open it
-bindsym $mod+s      exec ~/scripts/system/search.sh
-
-# Printscreen
-bindsym Print       exec ~/scripts/system/printscreen.sh
-
-################################################################################
-# Display ######################################################################
-################################################################################
-
-# Change between displays
-bindsym $mod+g exec ~/scripts/display/menu.sh
-
-################################################################################
-# Audio ########################################################################
-################################################################################
-
-bindsym XF86AudioRaiseVolume exec ~/scripts/audio/volumeUp.sh
-bindsym XF86AudioLowerVolume exec ~/scripts/audio/volumeDown.sh
-bindsym XF86AudioMute        exec ~/scripts/audio/mute.sh
-
-################################################################################
-# i3 ###########################################################################
-################################################################################
-
-# Config files
-bindsym $mod+Shift+e exec ~/scripts/run/editor.sh ~/.i3/config
-
-# Use window title, but no border
-bindsym $mod+n border normal 0
-
-# Use no window title and a thick border
-bindsym $mod+y border pixel 3
-
-# Use neither window title nor border
-bindsym $mod+u border none
-
-# kill focused window
-bindsym $mod+q kill
-
-# reload the configuration file
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r exec ~/scripts/wm/restart.py
 
 ################################################################################
 # WORKSPACES ###################################################################
@@ -161,39 +82,9 @@ bindsym $mod+Shift+p move container to workspace prev; workspace prev
 #bindsym $mod+Mod1+$right move workspace to output right
 #bindsym $mod+Mod1+$left move workspace to output left
 
-#navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+$right workspace next
-bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+$left workspace prev
-
-# Change focus
-bindsym $mod+$left  exec ~/scripts/wm/changeFocus.py left
-bindsym $mod+$down  exec ~/scripts/wm/changeFocus.py down
-bindsym $mod+$up    exec ~/scripts/wm/changeFocus.py up
-bindsym $mod+$right exec ~/scripts/wm/changeFocus.py right
-
-bindsym $mod+Left   exec ~/scripts/wm/changeFocus.py left
-bindsym $mod+Down   exec ~/scripts/wm/changeFocus.py down
-bindsym $mod+Up     exec ~/scripts/wm/changeFocus.py up
-bindsym $mod+Right  exec ~/scripts/wm/changeFocus.py right
-
-# Move focused windows
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
 # split in orientation
 bindsym $mod+b split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f exec ~/scripts/wm/fullscreen.py
 
 # change container layout (stacked, tabbed, toggle split)
 #bindsym $mod+s layout stacking
@@ -275,14 +166,14 @@ set $inactive #A0A0A0
 set $attention #ff0000
 set $background #000000
 
-# class                 border		backgr.		text		indicator	child_border
-client.focused		$active		$background	$active		$active		$active
-client.focused_inactive	$inactive	$background	$white		$inactive	$inactive
-client.unfocused	$inactive	$background	$white		$inactive	$inactive
-client.urgent		$attention	$background	$attention	$attention	$attention
-client.placeholder	$inactive	$background	$inactive	$inactive	$inactive
+# class                 border          backgr.         text            indicator       child_border
+client.focused          $active         $background     $active         $active         $active
+client.focused_inactive $inactive       $background     $white          $inactive       $inactive
+client.unfocused        $inactive       $background     $white          $inactive       $inactive
+client.urgent           $attention      $background     $attention      $attention      $attention
+client.placeholder      $inactive       $background     $inactive       $inactive       $inactive
 
-client.background	$background
+client.background       $background
 
 #hide window title bar
 for_window [class="^.*"] border pixel 3
@@ -290,9 +181,6 @@ for_window [class="^.*"] border pixel 3
 ################################################################################
 # BAR ##########################################################################
 ################################################################################
-
-# hide/unhide i3status bar
-bindsym $mod+i bar mode toggle
 
 bar {
     font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -305,15 +193,15 @@ bar {
     status_command ~/i3status.sh
 
     colors {
-    	   background $black
-	   statusline $white
-	   separator $grey
-	   #                  border		backgr.		text
-           focused_workspace  $active		$background	$active
-           active_workspace   $inactive		$background	$inactive
-	   inactive_workspace $inactive		$background	$inactive
-	   urgent_workspace   $attention	$background	$attention
-	   }
+           background $black
+           statusline $white
+           separator  $grey
+           #                  border        backgr.         text
+           focused_workspace  $active       $background     $active
+           active_workspace   $inactive     $background     $inactive
+           inactive_workspace $inactive     $background     $inactive
+           urgent_workspace   $attention    $background     $attention
+           }
 }
 
 ##########################################################
@@ -323,20 +211,3 @@ assign [class="Firefox"] $ws_web_name
 assign [class="Thunderbird"] $ws_email_name
 #assign [class="Emacs"] $ws_develop_name
 assign [class="Thunar"] $ws_home_name
-
-################################################################################
-# STARTUP ######################################################################
-################################################################################
-
-exec --no-startup-id ~/scripts/display/useOnlyExternal.sh
-exec --no-startup-id nm-applet
-
-# Change keyboard layout
-#exec_always "--no-startup-id setxkbmap -layout us,gr"
-#exec_always "--no-startup-id setxkbmap -option 'grp:alt_shift_toggle'"
-exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout us,gr -variant qwerty"
-
-exec --no-startup-id xrdb ~/.Xresources
-exec --no-startup-id wal -n -i ~/.wallpaper.png
-exec --no-startup-id feh --bg-max ~/.wallpaper.png
-exec --no-startup-id compton --config ~/.config/compton/compton.conf
