@@ -1,0 +1,12 @@
+sxhkd &
+setxkbmap -option 'grp:alt_shift_toggle' -layout us,gr -variant qwerty
+nm-applet &
+
+eval ${ssh-agent -s}
+
+xrdb ~/.Xresources &
+wal -n -i ~/.wallpaper.png &
+feh --bg-max ~/.wallpaper.png &
+compton --config ~/.config/compton/compton.conf &
+
+~/scripts/display/useOnlyExternal.sh &
