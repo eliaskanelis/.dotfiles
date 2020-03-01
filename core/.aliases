@@ -22,6 +22,7 @@ alias virt="virtualenv -p python3 .venv"
 #alias ll='ls -alF'
 #alias la='ls -A'
 #alias l='ls -CF'
+alias lsa='ls -lah'
 
 ################################################################################
 # Tools

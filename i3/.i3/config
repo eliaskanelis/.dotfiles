@@ -39,6 +39,9 @@ bindsym $mod+a         exec ~/scripts/tools/viewManPage.sh
 # System #######################################################################
 ################################################################################
 
+# Change language layout
+bindsym $mod+F12    exec ~/scripts/system/toggle-xkbmap.sh
+
 # Shutdown, Logout, lock etc pc
 bindsym $mod+Escape exec ~/scripts/system/menu.sh
 
@@ -329,6 +332,8 @@ exec --no-startup-id ~/scripts/display/useOnlyExternal.sh
 exec --no-startup-id nm-applet
 
 # Change keyboard layout
+#exec_always "--no-startup-id setxkbmap -layout us,gr"
+#exec_always "--no-startup-id setxkbmap -option 'grp:alt_shift_toggle'"
 exec --no-startup-id "setxkbmap -option 'grp:alt_shift_toggle' -layout us,gr -variant qwerty"
 
 exec --no-startup-id xrdb ~/.Xresources
