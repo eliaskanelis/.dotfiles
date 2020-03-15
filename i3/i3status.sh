@@ -5,13 +5,12 @@
 i3status --config ~/.i3status.conf | while :
 do
     read line
-    #LG=$(setxkbmap -query | awk '/layout/{print $2}')
-    #if [ $LG == "br" ]
-    #then
-    #    dat="[{ \"full_text\": \"LANG: $LG\", \"color\":\"#009E00\" },"
+    #LG="$(setxkbmap -query | grep layout | perl -pe 's/^layout: +([^ ]+)$/$1/')"
+    #if [ $LG == "us" ] then
+    #    dat="US"
     #else
-    #    dat="[{ \"full_text\": \"LANG: $LG\", \"color\":\"#C60101\" },"
+    #    dat="?"
     #fi
-    #echo "${line/[/$dat}" || exit 1
+    #echo "${line} | ${LG}" || exit 1
     echo "${line}" || exit 1
 done

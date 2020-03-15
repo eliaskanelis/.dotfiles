@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+#RSYNC_FLAGS=-avrhtucl --progress --delete
+
+rsync -avrhtucl --progress --delete "/media/tedi/BackPacker/data/"           "/media/tedi/Black/data/"
+
+# p preserve permissions
+# E preserve executability

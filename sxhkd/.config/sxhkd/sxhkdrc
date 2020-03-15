@@ -33,7 +33,7 @@ super + Escape
       exec ~/scripts/system/menu.sh
 
 # Run program launcher
-super + d
+super + shift + Return
       exec ~/scripts/system/launch.sh
 
 # Locate file or directory and open it
@@ -93,9 +93,10 @@ super + u
 super + q
       i3-msg "kill"
 
-# Reload wm
+# Reload wm and keybindings
 super + shift + r
-      exec ~/scripts/wm/restart.py
+      exec ~/scripts/wm/restart.py; \
+      pkill --signal USR1 -x sxhkd
 
 # Turn current window fullscreen
 super + f

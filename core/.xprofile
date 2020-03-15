@@ -1,8 +1,6 @@
 sxhkd &
-setxkbmap -option 'grp:alt_shift_toggle' -layout us,gr -variant qwerty
+setxkbmap -option 'grp:alt_shift_toggle' -layout us,gr -variant qwerty &
 nm-applet &
-
-eval ${ssh-agent -s}
 
 xrdb ~/.Xresources &
 wal -n -i ~/.wallpaper.png &

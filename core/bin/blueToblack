@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-rsync -avrhtucl --progress --exclude "/media/tedi/BackPacker/.Trash-1000" --exclude "/media/tedi/BackPacker/backup" "/media/tedi/BackPacker/" "/media/tedi/Black/"
-
-#rsync -avrhtucl --progress "/media/tedi/BackPacker/Books" "/media/tedi/Black/"
-#rsync -avrhtucl --progress "/media/tedi/BackPacker/Multimedia" "/media/tedi/Black/"
-#rsync -avrhtucl --progress "/media/tedi/BackPacker/VirtualBox VMs" "/media/tedi/Black/"
-#rsync -avrhtucl --progress "/media/tedi/BackPacker/Work" "/media/tedi/Black/"
