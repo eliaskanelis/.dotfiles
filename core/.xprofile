@@ -3,7 +3,7 @@ setxkbmap -option 'grp:alt_shift_toggle' -layout us,gr -variant qwerty &
 nm-applet &
 
 xrdb ~/.Xresources &
-wal -n -i ~/.wallpaper.png &
+#wal -n -i ~/.wallpaper.png &
 feh --bg-max ~/.wallpaper.png &
 compton --config ~/.config/compton/compton.conf &
 
