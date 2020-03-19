@@ -7,6 +7,7 @@ sudo apt-get install -y tmux
 
 # ------------------------------------------------------------------------------
 # System tools
+sudo apt-get install -y sxhkd
 sudo apt-get install -y stow
 sudo apt-get install -y parted
 sudo apt-get install -y gparted
@@ -27,7 +28,7 @@ sudo apt-get install -y i3blocls
 sudo apt-get install -y i3status
 sudo apt-get install -y i3lock-fancy
 sudo apt-get install -y compton
-sudo pip install i3ipc
+pip3 install --user i3ipc
 
 # ------------------------------------------------------------------------------
 # Emacs
