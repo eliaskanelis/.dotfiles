@@ -20,6 +20,10 @@ alias zshconfig="e ~/.zshrc"
 alias bashconfig="e ~/.bashrc"
 
 ################################################################################
+# Ssh
+alias sshAgentStart='eval "$(ssh-agent -s)"'
+
+################################################################################
 # Virtual environment
 alias virt="virtualenv -p python3 .venv"
 
