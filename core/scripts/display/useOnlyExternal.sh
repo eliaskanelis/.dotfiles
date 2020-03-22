@@ -9,4 +9,4 @@ if ! [ -x "$(command -v xrandr)" ]; then
 fi
 
 # Set external display
-xrandr --output VGA1 --primary --mode 1920x1080 --output LVDS1 --off
+xrandr --output VGA-1 --primary --mode 1920x1080 --output LVDS-1 --off

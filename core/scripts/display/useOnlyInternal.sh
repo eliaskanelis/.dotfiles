@@ -10,4 +10,4 @@ if ! [ -x "$(command -v xrandr)" ]; then
 fi
 
 # Set internal display
-xrandr --output LVDS1 --primary --mode 1366x768 --output VGA1 --off
+xrandr --output LVDS-1 --primary --mode 1366x768 --output VGA-1 --off

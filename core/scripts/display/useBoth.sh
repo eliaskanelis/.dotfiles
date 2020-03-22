@@ -9,4 +9,4 @@ if ! [ -x "$(command -v xrandr)" ]; then
 fi
 
 # Set both displays
-xrandr --auto --output VGA1 --primary --mode 1920x1080 --left-of LVDS1
+xrandr --auto --output VGA-1 --primary --mode 1920x1080 --left-of LVDS-1
