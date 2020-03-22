@@ -27,4 +27,7 @@
 # Tasks
 
 # For my eyes
-@reboot redshift
+@reboot             redshift &
+
+# Local locate database update
+10 * * * *          updatedb --require-visibility 0 -o ${HOME}/.mlocate.db -U ${HOME} -v &

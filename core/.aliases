@@ -52,5 +52,5 @@ alias speak="espeak -g 10 -k 20 -s 150 -p -1 -ven+f4 "
 
 ################################################################################
 # Updatedb
-alias myupdatedb="updatedb --require-visibility 0 -o ~/.mlocate.db -U ~ -v"
-alias mylocate="locate --database=.mlocate.db"
+alias myupdatedb="updatedb --require-visibility 0 -o ${HOME}/.mlocate.db -U ${HOME} -v"
+alias mylocate='locate --database="${HOME}/.mlocate.db"'
