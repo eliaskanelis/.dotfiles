@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [ "$XDG_CURRENT_DESKTOP" = '' ]
+then
+	WM="$GDMSESSION"
+	#WM=$(echo "$XDG_DATA_DIRS" | sed 's/.*\(xfce\|kde\|gnome\|bspwm\).*/\1/')
+else
+    WM=$XDG_CURRENT_DESKTOP
+fi
+
+WM=${WM,,}  # convert to lower case
+
+echo "${WM}"
