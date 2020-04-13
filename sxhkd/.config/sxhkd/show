@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Shows the list of keybindings
+
+RC="${HOME}/.config/sxhkd/sxhkdrc ${HOME}/.config/sxhkd/sxhkdrc_${WM}"
+
+#LIST=$(awk '/^[a-z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' ${RC} | column -t -s $'\t')
+LIST=$(cat ${RC} | awk '/^[a-z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' | sort | column -t -s $'\t')
+
+
+echo "${LIST}" | rofi -threads 0 -width 1000 -dmenu -i -p "Keybindings" -theme "system"

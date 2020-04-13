@@ -1,10 +1,21 @@
-sxhkd &
-setxkbmap -option 'grp:alt_shift_toggle' -layout us,gr -variant qwerty &
+export WM="$(~/scripts/wm/which_wm)"
+
+sxhkd -c ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc_${WM} &
+
+#setxkbmap -option 'grp:alt_shift_toggle' -layout us,gr -variant qwerty &
+setxkbmap -layout us
+setxkbmap -option compose:menu
+
 nm-applet &
 
 xrdb ~/.Xresources &
 #wal -n -i ~/.wallpaper.png &
-feh --bg-max ~/.wallpaper.png &
-compton --config ~/.config/compton/compton.conf &
 
 ~/scripts/display/useOnlyExternal.sh &
+
+if [ -f ~/.fehbg ]
+then
+	/bin/sh ~/.fehbg
+else
+	feh --bg-max ~/.wallpaper.png
+fi

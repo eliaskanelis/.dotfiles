@@ -3,7 +3,9 @@
 # Quickly switch between a given keyboard layout and the US Qwerty one
 
 OTHER_LAYOUT="gr"
-CURRENT="$(setxkbmap -query | grep layout | perl -pe 's/^layout: +([^ ]+)$/$1/')"
+#CURRENT="$(setxkbmap -query | grep layout | perl -pe 's/^layout: +([^ ]+)$/$1/')"
+CURRENT="$(setxkbmap -query | sed '/^l/!d ; s,.*:[\ ]*,,g')"
+
 
 if [ "${CURRENT}" = "us" ] ; then
     setxkbmap -layout "${OTHER_LAYOUT}" -option ctrl:nocaps

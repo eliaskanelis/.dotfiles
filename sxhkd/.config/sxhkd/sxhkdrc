@@ -1,3 +1,7 @@
+################################################################################
+#
+# Use 'xmodmap -pke' to see available keys
+
 #-------------------------------------------------------------------------------
 # Run apps
 
@@ -44,6 +48,14 @@ super + z
 super + s
       exec ~/scripts/system/search.sh
 
+# Change keyboard layout
+super + backslash
+      exec ~/scripts/system/toggle-xkbmap.sh
+
+# Locate file or directory and open it
+super + F1
+      exec ~/.config/sxhkd/show
+
 # Printscreen
 Print
       exec ~/scripts/system/printscreen.sh
@@ -69,100 +81,3 @@ XF86AudioLowerVolume
 # Mute sound
 XF86AudioMute
       exec ~/scripts/audio/mute.sh
-
-#-------------------------------------------------------------------------------
-# i3 basic
-
-# Config files
-super + shift + e
-      exec ~/scripts/run/editor.sh ~/.i3/config
-
-# Use window title, but no border
-super + n
-      i3-msg "border normal 0"
-
-# Use no window title and a thick border
-super + y
-      i3-msg "border pixel 3"
-
-# Use neither window title nor border
-super + u
-      i3-msg "border none"
-
-# kill focused window
-super + q
-      i3-msg "kill"
-
-# Reload wm and keybindings
-super + shift + r
-      exec ~/scripts/wm/restart.py; \
-      pkill --signal USR1 -x sxhkd
-
-# Turn current window fullscreen
-super + f
-      exec ~/scripts/wm/fullscreen.py
-
-# Hide/unhide status bar
-super + i
-      i3-msg "bar mode toggle"
-
-#-------------------------------------------------------------------------------
-# i3 navigation
-
-#---------------------
-
-# Go to the window on the left
-super + h
-      exec ~/scripts/wm/changeFocus.py left
-
-# Go to the window down
-super + j
-      exec ~/scripts/wm/changeFocus.py down
-
-# Go to the window up
-super + k
-      exec ~/scripts/wm/changeFocus.py up
-
-# Go to the window on the right
-super + l
-      exec ~/scripts/wm/changeFocus.py right
-
-#---------------------
-
-# Go to the window on the left
-super + Left
-      exec ~/scripts/wm/changeFocus.py left
-
-# Go to the window down
-super + Down
-      exec ~/scripts/wm/changeFocus.py down
-
-# Go to the window up
-super + Up
-      exec ~/scripts/wm/changeFocus.py up
-
-# Go to the window on the right
-super + Right
-      exec ~/scripts/wm/changeFocus.py right
-
-#---------------------
-
-# Navigate workspaces next / previous
-super + ctrl + Right
-      i3-msg "workspace next"
-super + ctrl + Left
-      i3-msg "workspace prev"
-
-#---------------------
-
-# Move focused windows
-super + shift + Left
-      i3-msg "move left"
-super + shift + Down
-      i3-msg "move down"
-super + shift + Up
-      i3-msg "move up"
-super + shift + Right
-      i3-msg "move right"
-
-#---------------------

@@ -16,19 +16,28 @@ sudo apt-get install -y rofi
 sudo apt-get install -y neofetch
 sudo apt-get install -y feh
 sudo apt-get install -y imagemagick
+sudo apt-get install -y virtualenv
+sudo apt get install -y alsa-utils
+sudo apt-get install -y compton
 
 sudo apt-get install -y scrot
 sudo apt-get install -y flameshot
 
 # ------------------------------------------------------------------------------
 # Window manager
+# i3
 sudo apt-get install -y i3
 sudo apt-get install -y i3-wm
 sudo apt-get install -y i3blocls
 sudo apt-get install -y i3status
 sudo apt-get install -y i3lock-fancy
-sudo apt-get install -y compton
 pip3 install --user i3ipc
+
+# bspwm
+sudo apt get install -y bspwm
+sudo apt get install -y lemonbar
+sudo apt get install -y trayer
+sudo apt get install -y xdo
 
 # ------------------------------------------------------------------------------
 # Emacs
@@ -61,6 +70,7 @@ sudo apt-get install -y wireshark
 sudo apt-get install -y gnucash
 sudo apt-get install -y keepassxc
 sudo apt-get install -y redshift
+sudo apt-get install -y gimp
 sudo apt-get install -y inkscape
 sudo apt-get install -y highlight
 sudo apt-get install -y moreutils
@@ -81,6 +91,8 @@ sudo apt-get install -y fonts-powerline
 # Programmer
 
 # Dev tools
+sudo apt-get install -y sqlitebrowser
+sudo apt-get install -y jq
 sudo apt-get install -y exuberant-ctags
 sudo apt-get install -y global
 sudo apt-get install -y doxygen
@@ -156,3 +168,8 @@ sudo apt-get install -y python3-pygments
 sudo apt-get install -y cron
 crontab -r
 crontab crontabFile
+
+# ------------------------------------------------------------------------------
+# TODO
+#sudo apt-get install -y ffmpeg
+#sudo apt get install -y xdotool
