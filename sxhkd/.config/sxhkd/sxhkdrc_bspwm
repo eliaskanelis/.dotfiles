@@ -73,6 +73,10 @@ super + alt + {1,2,3,4,5,6,7,8,9}
       bspc desktop --focus {1,2,3,4,5,6,7,8,9}; \
       bspc node --focus ${id}
 
+# Move window to the selected desktop
+super + alt + Return
+      exec ~/.config/bspwm/scripts/moveNodeToWindow.sh
+
 #---------------------
 
 # Preselect the direction
@@ -92,3 +96,7 @@ super + ctrl + space
 # Cycle throught the nodes in a window
 super + {_,shift + } Tab
       bspc node "@/" --circulate {"forward","backward"}
+
+# Increase/decrease window gap on focused desktop
+super + bracket{left,right}
+      exec ~/.config/bspwm/scripts/gaps {-,+} 5

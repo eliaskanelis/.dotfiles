@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Change the bspwm window gaps
+
+if ! [ -x "$(command -v bspc)" ]; then
+    notify-send -u critical "Failed" "bspc is not installed"
+    exit 1
+fi
+
+# Arguments
+CMD="${1}"
+GAP_OFFSET="${2}"
+
+# Acquire
+GAP=$(bspc config -d focused window_gap)
+
+if [ "${CMD}" == "-" ]
+then
+    # Decrease gaps
+    if [ "${GAP}" -lt "${GAP_OFFSET}" ]
+    then
+	GAP="${GAP_OFFSET}"
+    fi
+    GAP=$((GAP - "${GAP_OFFSET}"))
+
+elif [ "${CMD}" == "+" ]
+then
+    # Increase gaps
+    GAP=$((GAP + "${GAP_OFFSET}"))
+else
+    # Remove gaps
+    GAP="6"
+fi
+
+# This is lemonbar's height hardcoded here
+MENU_HEIGHT="15"
+
+BORDER=1
+bspc config border_width        ${BORDER}
+bspc config window_gap          ${GAP}
+bspc config top_padding         $((-1*GAP+MENU_HEIGHT))
+bspc config bottom_padding      -${GAP}
+bspc config left_padding        -${GAP}
+bspc config right_padding       -${GAP}

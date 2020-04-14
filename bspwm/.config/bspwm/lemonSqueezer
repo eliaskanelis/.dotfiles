@@ -1,0 +1,291 @@
+#!/usr/bin/env bash
+
+red="#f92672"
+yellow="#f4bf75"
+blue="#66d9ef"
+green="#a6e22e"
+white="#f8f8f2"
+black="#272822"
+grey="#75715e"
+
+foregroundalt="#75715e"
+foreground="#a6e22e"
+
+Desktop()
+{
+    line=$1
+    case $line in
+	WM*)
+	    # bspwm's state
+	    wm=
+	    IFS=':'
+	    set -- ${line#?}
+	    while [ "$#" -gt 0 ] ; do
+		item="$1"
+		name="${item#?}"
+		case "$item" in
+		    [mMfFoOuULG]*)
+			case "$item" in
+			    m*)
+				# monitor
+				on_focused_monitor=
+				FG="$foregroundalt" # needed to avoid invalid colour error
+				label=
+				name=
+				;;
+			    M*)
+				# focused monitor
+				on_focused_monitor=1
+				FG="$foregroundalt" # needed to avoid invalid colour error
+				label=
+				name=
+				;;
+			    # {Free,Occupied,Urgent} focused
+			    [FOU]*)
+				if [ -n "$on_focused_monitor" ]; then
+				    FG="$white"
+				    label=
+				    name="%{B#75715e}%{T2}${name/*/  $name  }%{T-}%{B-}" # the %{Tx} specifies the bold font
+				else
+				    FG="$foregroundalt"
+				    label=
+				    name="${name/*/ $name-}"
+				fi
+				;;
+			    # {free,occupied,urgent} unfocused
+			    f*)
+				FG="$foregroundalt"
+				label=
+				name="${name/*/ $name }"
+				;;
+			    o*)
+				FG="$white"
+				label=
+				name="${name/*/ $name}"
+				;;
+			    u*)
+				FG="$red"
+				label=
+				name="${name/*/ $name\#}"
+				;;
+			    # desktop layout for monocle and node flags
+			    LM|G*?)
+			    FG="$foreground"
+			    label=
+			    name="${name/*/ $name }"
+			    ;;
+			    *)
+				FG="$foregroundalt"
+				label=
+				name="${name/*/ * }"
+				;;
+			esac
+			wm="${wm}%{F$FG}${name} ${label}%{F-}"
+			;;
+		esac
+		shift
+	    done
+    esac
+    #echo "${raw} |${wm}"
+    echo "${wm}"
+}
+
+function ActiveWindow()
+{
+    len=$(echo -n "$(xdotool getwindowfocus getwindowname)" | wc -m)
+    max_len=70
+    if [ "$len" -gt "$max_len" ];then
+	echo -n "$(xdotool getwindowfocus getwindowname | cut -c 1-$max_len)..."
+    else
+	echo -n "$(xdotool getwindowfocus getwindowname)"
+    fi
+}
+
+function Wifi()
+{
+    INTERFACE="wlp3s0"
+    WIFISTR=$(iwconfig "${INTERFACE}" | grep "Link" | sed 's/ //g' | sed 's/LinkQuality=//g' | sed 's/\/.*//g')
+    if [ ! -z "$WIFISTR" ] ; then
+	WIFISTR=$(( "${WIFISTR}" * 100 / 70))
+	ESSID=$(iwconfig "${INTERFACE}" | grep ESSID | sed 's/ //g' | sed 's/.*://' | cut -d "\"" -f 2)
+	if [ "$WIFISTR" -ge 1 ] ; then
+	    #echo -e "\uf1eb ${WIFISTR}% ${ESSID}"
+	    echo -e "%{F$green}\uf1eb%{F-} ${ESSID}"
+	fi
+    fi
+}
+
+function AC()
+{
+    AC=$(acpi --ac-adapter)
+    if [[ "$AC" != "" ]]
+    then
+	echo -e "%{F$green}\uf1e6%{F-}"
+    fi
+}
+
+function Battery()
+{
+    BATTACPI=$(acpi --battery)
+    BATPERC=$(echo "$BATTACPI" | cut -d, -f2 | tr -d '[:space:]')
+
+    if [[ "$BATTACPI" == *"100%"* ]]
+    then
+	# Battery full
+	echo -e -n "\uf00c $BATPERC"
+    elif [[ "$BATTACPI" == *"Discharging"* ]]
+    then
+	BATPERC="${BATPERC::-1}"
+	if [ "$BATPERC" -le "10" ]
+	then
+	    echo -e -n "\uf244"
+	elif [ "$BATPERC" -le "25" ]
+	then
+	    echo -e -n "\uf243"
+	elif [ "$BATPERC" -le "50" ]
+	then
+	    echo -e -n "\uf242"
+	elif [ "$BATPERC" -le "75" ]
+	then
+	    echo -e -n "\uf241"
+	elif [ "$BATPERC" -le "100" ]
+	then
+	    echo -e -n "\uf240"
+	fi
+	echo -e " $BATPERC%"
+    elif [[ "$BATTACPI" == *"Charging"* && "$BATTACPI" != *"100%"* ]]
+    then
+	echo -e "\uf0e7 $BATPERC"
+    elif [[ "$BATTACPI" == *"Unknown"* ]]
+    then
+	echo -e "$BATPERC"
+    fi
+}
+
+# Core temperature.
+Temperature() {
+    command -v acpi > /dev/null || return 1
+
+    local label command output
+
+    label='\uf2c9'
+    # Use Bash parameter expansion again…
+    command="$(acpi -t)"
+    output="${command#*: }"
+    output="${output#*, }"
+    output="${output:0:2}"
+
+    # Up to 59 degrees celsius keep text colour same as default.  60-79
+    # turn the colour red on normal background.  Else turn the whole
+    # indicator red.
+    case "$output" in
+	[12345][0-9])
+	    echo "%{F$green}${label}%{F-} ${output}°C"
+	    ;;
+	[67][0-9])
+	    echo "%{F$red}${label} ${output}°C%{F-}"
+	    ;;
+	*)
+	    echo "%{F$white}%{B$red} $label ${output}°C %{B-}%{F-}"
+	    ;;
+    esac
+}
+
+function Sound()
+{
+    NOTMUTED=$( amixer sget Master | grep "\[on\]" )
+    if [[ ! -z $NOTMUTED ]] ; then
+	VOL=$(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget Master) | sed 's/%//g')
+	if [ "$VOL" -ge 85 ] ; then
+	    echo -e "%{F$white}\uf028%{F-} ${VOL}%"
+	elif [ "$VOL" -ge 50 ] ; then
+	    echo -e "%{F$white}\uf027%{F-} ${VOL}%"
+	else
+	    echo -e "%{F$yellow}\uf026%{F-} ${VOL}%"
+	fi
+    else
+	echo -e "%{F$red}\uf026%{F-} M"
+    fi
+}
+
+function Language()
+{
+    local CURRENTLANG
+    CURRENTLANG=$("${HOME}"/scripts/system/get-xkbmap.sh)
+    if [[ "$CURRENTLANG" == "us" ]] ; then
+	echo -e "%{F$white}\uf11c%{F-} us"
+    elif [[ "$CURRENTLANG" == "en" ]] ; then
+	echo -e "%{F$white}\uf11c%{F-} en"
+    elif [[ "$CURRENTLANG" == "gr" ]] ; then
+	echo -e "%{F$white}\uf11c%{F-} gr"
+    else
+	echo -e "%{F$white}\uf11c%{F-} ?"
+    fi
+}
+
+function Cal()
+{
+    local DATE
+    DATE=$(date "+%a, %d %B %Y")
+    echo -e "%{F$white}\uf073%{F-} ${DATE}"
+}
+
+function Clock()
+{
+    local TIME
+    TIME=$(date "+%H:%M:%S")
+    echo -e "%{F$white}\uf017%{F-} ${TIME}"
+}
+
+modules()
+{
+    while true
+    do
+	echo ""
+	sleep 1s
+    done
+}
+
+################################################################################
+# Set path to named pipe used to store process data for these operations
+lemonbar_fifo="/tmp/lemonbar.fifo"
+
+# FIFO
+[ -e "${lemonbar_fifo}" ] && rm "${lemonbar_fifo}"
+mkfifo "${lemonbar_fifo}"
+
+# Sent output to FIFO
+modules > "${lemonbar_fifo}" &
+bspc subscribe report > "${lemonbar_fifo}" &
+
+panel()
+{
+    local monitor
+    monitor="$(xrandr --query | grep 'VGA1 connected')"
+
+    while read -r line;
+    do
+	case $line in
+	    WM*)
+		windows=$(Desktop "$line")
+		;;
+	esac
+
+	echo -ne "%{l}${windows} \
+	          %{c}$(ActiveWindow) \
+	          %{r}$(Wifi) $(AC) $(Battery) $(Temperature) $(Sound) $(Language) $(Cal) $(Clock)"
+    done
+}
+
+# Launch the panel
+pgrep -x lemonbar > /dev/null && pkill -x lemonbar
+panel < "${lemonbar_fifo}" | "${HOME}/Desktop/bar/lemonbar" -p -B "#272822" -F "#75715e" -U "#f92672" -f "SourceCodePro+Powerline+Awesome+Regular:size=10" -f "FontAwesome" -g 1863x15+0+0 -n Lemonpanel &
+
+# We wait until the lemonpanel loads
+until bar_id=$(xdo id -a 'Lemonpanel'); do
+    sleep 1s
+done
+
+# Put the lemonpanel one layer below
+# This solves fullscreen of other windows
+xdo below -t $(xdo id -n root) $bar_id
