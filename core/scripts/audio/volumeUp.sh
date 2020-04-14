@@ -3,13 +3,17 @@
 # Raise the volume
 
 # Check if tool is available
-if ! [ -x "$(command -v pactl)" ]; then
-    notify-send -u critical -i "notification-message-IM" "Volume up failed" "Pactl is not installed"
+if ! [ -x "$(command -v amixer)" ]; then
+    notify-send -u critical -i "notification-message-IM" "Volume up failed" "amixer is not installed"
     exit 1
 fi
 
+amixer sset Master 0.5dB+
+exit 0
+
 # Get volume
-volume=$(pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+volume=$(awk -F"[][]" '/dB/ { print $2 }' <(amixer sget "Master") | sed 's/%//g')
+
 
 # Raise 5%
 volume=$((volume+5))
@@ -20,4 +24,4 @@ if [ "${volume}" -gt "100" ]; then
 fi
 
 # Set the volume
-pactl set-sink-volume 0 "${volume}%"
+amixer sset "Master" "${volume}%"
