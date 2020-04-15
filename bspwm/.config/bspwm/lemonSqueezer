@@ -92,12 +92,22 @@ Desktop()
 
 function ActiveWindow()
 {
-    len=$(echo -n "$(xdotool getwindowfocus getwindowname)" | wc -m)
+    WINDOW_NAME="$(xdotool getwindowfocus getwindowname)"
+    len=$(echo -n "${WINDOW_NAME}" | wc -m)
     max_len=70
     if [ "$len" -gt "$max_len" ];then
-	echo -n "$(xdotool getwindowfocus getwindowname | cut -c 1-$max_len)..."
+	echo -n "$(echo -n "${WINDOW_NAME}" | cut -c 1-$max_len)..."
     else
-	echo -n "$(xdotool getwindowfocus getwindowname)"
+	echo -n "${WINDOW_NAME}"
+    fi
+}
+
+function Music()
+{
+    SONG="$(mpc current)"
+    if [ "${SONG}" != "" ]
+    then
+	echo -n "%{F$green}\uf144%{F-} ${SONG}"
     fi
 }
 
@@ -261,7 +271,7 @@ bspc subscribe report > "${lemonbar_fifo}" &
 panel()
 {
     local monitor
-    monitor="$(xrandr --query | grep 'VGA1 connected')"
+    #monitor="$(xrandr --query | grep 'VGA1 connected')"
 
     while read -r line;
     do
@@ -271,9 +281,9 @@ panel()
 		;;
 	esac
 
-	echo -ne "%{l}${windows} \
-	          %{c}$(ActiveWindow) \
-	          %{r}$(Wifi) $(AC) $(Battery) $(Temperature) $(Sound) $(Language) $(Cal) $(Clock)"
+	echo -ne "%{l}${windows}    $(ActiveWindow) \
+	          %{c} \
+	          %{r}$(Music) $(Wifi) $(AC) $(Battery) $(Temperature) $(Sound) $(Language) $(Cal) $(Clock)"
     done
 }
 

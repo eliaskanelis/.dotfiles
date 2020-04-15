@@ -190,7 +190,7 @@ bar {
     position top
     tray_output primary
     separator_symbol "|"
-    status_command ~/i3status.sh
+    status_command ~/.i3/i3status.sh
 
     colors {
            background $black

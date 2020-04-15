@@ -2,7 +2,7 @@
 
 # shell scipt to prepend i3status with more stuff
 
-i3status --config ~/.i3status.conf | while :
+i3status --config ~/.i3/i3status.conf | while :
 do
     read line
     #LG="$(setxkbmap -query | grep layout | perl -pe 's/^layout: +([^ ]+)$/$1/')"
