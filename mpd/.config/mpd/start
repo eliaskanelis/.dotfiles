@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Create required directories
+mkdir -p ~/.cache/mpd
+mkdir -p ~/.cache/mpd/playlists
+
+# Start it
+systemctl --user restart mpd

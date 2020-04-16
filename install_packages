@@ -19,6 +19,8 @@ sudo apt-get install -y imagemagick
 sudo apt-get install -y virtualenv
 sudo apt get install -y alsa-utils
 sudo apt-get install -y compton
+sudo apt-get install -y xdotool
+sudo apt-get install -y ffmpeg
 
 sudo apt-get install -y scrot
 sudo apt-get install -y flameshot
@@ -170,6 +172,7 @@ crontab -r
 crontab crontabFile
 
 # ------------------------------------------------------------------------------
-# TODO
-#sudo apt-get install -y ffmpeg
-#sudo apt get install -y xdotool
+# Music
+sudo apt get install -y mpd
+sudo apt get install -y mpc
+sudo apt get install -y ncmpcpp
