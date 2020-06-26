@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+TARGET_DIR="/tmp/lemonbar/"
+
+# Make dir if it doesn't exist
+mkdir -p ${TARGET_DIR}
+
+# Download
+git clone https://github.com/TediCreations/bar.git ${TARGET_DIR}
+
+# Go to build dir
+cd ${TARGET_DIR}
+
+# Build
+make
+make install
+
+rm -rf ${TARGET_DIR}
+
+exit 0

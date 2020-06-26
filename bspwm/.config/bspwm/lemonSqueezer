@@ -289,7 +289,7 @@ panel()
 
 # Launch the panel
 pgrep -x lemonbar > /dev/null && pkill -x lemonbar
-panel < "${lemonbar_fifo}" | "${HOME}/Desktop/bar/lemonbar" -p -B "#272822" -F "#75715e" -U "#f92672" -f "SourceCodePro+Powerline+Awesome+Regular:size=10" -f "FontAwesome" -g 1863x15+0+0 -n Lemonpanel &
+panel < "${lemonbar_fifo}" | lemonbar -p -B "#272822" -F "#75715e" -U "#f92672" -f "SourceCodePro+Powerline+Awesome+Regular:size=10" -f "FontAwesome" -g 1863x15+0+0 -n Lemonpanel &
 
 # We wait until the lemonpanel loads
 until bar_id=$(xdo id -a 'Lemonpanel'); do
