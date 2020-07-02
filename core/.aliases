@@ -50,6 +50,9 @@ alias moon="curl wttr.in/Moon"
 
 alias speak="espeak -g 10 -k 20 -s 150 -p -1 -ven+f4 "
 
+alias python="python3"
+alias pip="pip3"
+
 ################################################################################
 # Updatedb
 alias myupdatedb="updatedb --require-visibility 0 -o ${HOME}/.mlocate.db -U ${HOME} -v"
