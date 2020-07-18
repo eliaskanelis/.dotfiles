@@ -9,4 +9,4 @@ if ! [ -x "$(command -v rofi)" ]; then
 fi
 
 # Run program
-rofi -combi-modi window,drun,ssh -theme "system" -show combi
+rofi -combi-modi window,drun,ssh -show-icons -sidebar-mode -theme "system" -show combi
