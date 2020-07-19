@@ -157,7 +157,11 @@ function cd() {
 
     if [[ -d ./.venv ]] ; then
 	. ./.venv/bin/activate
-	#source <(inv --print-completion-script zsh)
+	# Autocompletion for invoke
+	if command -v invoke &> /dev/null
+	then
+	    source <(invoke --print-completion-script zsh)
+	fi
     fi
 }
 
