@@ -19,3 +19,8 @@ then
 else
 	feh --bg-max ~/.wallpaper.png
 fi
+
+# Start emacs
+if [ -z "$(pidof -s emacs)" ]; then
+   emacs --daemon &> /dev/null &
+fi
