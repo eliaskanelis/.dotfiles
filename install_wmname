@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+OUTPUT_PATH="/tmp/wmname/"
+
+
+# Make dir if it doesn't exist
+mkdir -p ${OUTPUT_PATH}
+
+# Download
+git clone git@github.com:TediCreations/wmname.git ${OUTPUT_PATH}
+
+# Go to build dir
+cd ${OUTPUT_PATH}
+
+# Build
+make
+sudo make install
+
+# Clean
+rm -rf ${TARGET_DIR}
+
+exit 0
