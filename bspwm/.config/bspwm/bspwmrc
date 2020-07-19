@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Fix Java GUIs
+# https://wiki.archlinux.org/index.php/Java#Gray_window,_applications_not_resizing_with_WM,_menus_immediately_closing
+wmname LG3D
+
 # Workspaces
 bspc monitor -d "Idle" "Work" "Dev" "Net" "Extra"
 
@@ -33,9 +37,13 @@ bspc config borderless_monocle     true
 bspc config paddingless_monocle    false
 bspc config gapless_monocle        false
 
+# Remove old rules on reset
+bspc rule -r "*"
+
 # Rules
+#bspc rule -a Firefox     desktop='^4'
+#bspc rule -a Thunderbird desktop='^5'
 #bspc rule -a Gimp desktop='^8' state=floating follow=on
-#bspc rule -a Firefox desktop='^3'
 #bspc rule -a mplayer2 state=floating
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off
