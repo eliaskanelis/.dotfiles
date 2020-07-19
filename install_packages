@@ -105,6 +105,7 @@ sudo apt-get install -y astyle
 sudo apt-get install -y picocom
 sudo apt-get install -y shellcheck
 sudo apt-get install -y python3-invoke
+sudo apt-get install -y dos2unix
 
 # GNU Toolchain
 sudo apt-get install -y make
