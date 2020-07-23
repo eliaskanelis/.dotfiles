@@ -150,7 +150,10 @@ export GTK2_RC_FILES=${HOME}/.gtkrc-2.0
 
 function cd() {
     if [[ -d ./.venv ]] ; then
-	deactivate
+	if command -v deactivate &> /dev/null
+	then
+	    deactivate
+	fi
     fi
 
     builtin cd $1
