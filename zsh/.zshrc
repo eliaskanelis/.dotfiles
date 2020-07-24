@@ -143,6 +143,32 @@ fi
 
 export GTK2_RC_FILES=${HOME}/.gtkrc-2.0
 
+
+########################################################
+# Python startup script ################################
+#
+#
+
+export PYTHONSTARTUP=~/.pythonrc
+
+
+########################################################
+# Pip autocompletion ###################################
+#
+#
+
+if command -v pip3 &> /dev/null
+then
+    # This is the original way but is slow
+    #eval "$(pip3 completion --zsh)"
+
+    # This is a workaround for speed optimization
+    file=~/.cache/pip/pip_completion_zsh
+    mkdir -p $(dirname ${file})
+    [ -f ${file} ] || pip3 completion --zsh > ${file}
+    eval "$(cat ${file})"
+fi
+
 ########################################################
 # Automatic virtual environment ########################
 #
