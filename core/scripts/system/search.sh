@@ -17,7 +17,7 @@ if ! [ -x "$(command -v rofi)" ]; then
 fi
 
 # Run program
-engine=$(echo "Google Youtube StackOverflow Github Wikipedia ArchWiki Reddit DockerImage cppreference" | tr " " "\n" | rofi -dmenu -i -theme "system" -p "Engine: "  )
+engine=$(echo "Google Youtube StackOverflow Github Wikipedia ArchWiki Reddit DockerImage cppreference PyPi" | tr " " "\n" | rofi -dmenu -i -theme "system" -p "Engine: "  )
 
 if [ "${engine}" == "Google" ]; then
     choice=$(rofi -dmenu -theme "system" -p "Google: "  )
@@ -54,6 +54,10 @@ elif [ "${engine}" == "DockerImage" ]; then
 elif [ "${engine}" == "cppreference" ]; then
     choice=$(rofi -dmenu -theme "system" -p "cppreference: "  )
     ${BROWSER} "https://en.cppreference.com/?&search=${choice}"
+
+elif [ "${engine}" == "PyPi" ]; then
+    choice=$(rofi -dmenu -theme "system" -p "PyPi: "  )
+    ${BROWSER} "https://pypi.org/search/?q=${choice}"
 
 else
     echo ""
