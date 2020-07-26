@@ -1,9 +1,15 @@
 [submodule "emacs/.emacs.d"]
 	path = emacs/.emacs.d
 	url = git@github.com:TediCreations/.emacs.d.git
-[submodule "zsh/.oh-my-zsh"]
-	path = zsh/.oh-my-zsh
+[submodule "zsh/.config/oh-my-zsh/ohmyzsh"]
+	path = zsh/.config/oh-my-zsh/ohmyzsh
 	url = git@github.com:ohmyzsh/ohmyzsh.git
+[submodule "zsh/.config/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = zsh/.config/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	url = git@github.com:zsh-users/zsh-syntax-highlighting.git
+[submodule "zsh/.config/oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+	path = zsh/.config/oh-my-zsh/custom/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
 [submodule "core/opt/Pc-lint/config"]
 	path = core/opt/Pc-lint/config
 	url = git@github.com:GimpelSoftware/config.git
@@ -16,3 +22,6 @@
 [submodule "core/opt/Quantum_Leaps/qtools"]
 	path = core/opt/Quantum_Leaps/qtools
 	url = git@github.com:QuantumLeaps/qtools.git
+[submodule "zsh/.config/ohmyzsh/custom/plugins/zsh-autosuggestions"]
+	path = zsh/.config/ohmyzsh/custom/plugins/zsh-autosuggestions
+	url = git@github.com:zsh-users/zsh-autosuggestions.git
