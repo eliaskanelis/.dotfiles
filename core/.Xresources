@@ -1,5 +1,6 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Monokai X colors.
+
 ! special
 *.foreground:   #f8f8f2
 *.background:   #272822
@@ -38,17 +39,15 @@
 *.color15:      #f8f8f2
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!! URxvt Appearance
-!URxvt.font: xft:SourceCodePro+Powerline+Awesome:style=Regular:size=8
-!URxvt.boldFont: xft:SourceCodePro+Powerline+Awesome:style=Bold:size=8
-!URxvt.italicFont: xft:SourceCodePro+Powerline+Awesome:style=Italic:size=8
-!URxvt.boldItalicfont: xft:SourceCodePro+Powerline+Awesome:style=Bold Italic:size=8
-URxvt*font: xft:SourceCodePro+Powerline+Awesome Regular:pixelsize=13:antialias=true:hinting=true,xft:SourceCodePro+Powerline+Awesome+Regular:pixelsize=13:antialias=true:hinting=true:minspace=False
-URxvt*boldFont: xft:SourceCodePro+Powerline+Awesome Regular:pixelsize=13:antialias=true:hinting=true,xft:SourceCodePro+Powerline+Awesome+Regular:pixelsize=13:antialias=true:hinting=true:minspace=False
-URxvt*italicFont: xft:SourceCodePro+Powerline+Awesome Regular:pixelsize=13:antialias=true:hinting=true,xft:SourceCodePro+Powerline+Awesome+Regular:pixelsize=13:antialias=true:hinting=true:minspace=False
-URxvt*boldItalicfont: xft:SourceCodePro+Powerline+Awesome Regular:pixelsize=13:antialias=true:hinting=true,xft:SourceCodePro+Powerline+Awesome+Regular:pixelsize=13:antialias=true:hinting=true:minspace=False
+! URxvt Appearance
 
-URxvt.letterSpace: 1
+! Fonts
+URxvt.font:           xft:SourceCodePro+Powerline+Awesome Regular:style=Regular:size=10:antialias=true:hinting=true:minspace=true
+URxvt.boldFont:       xft:SourceCodePro+Powerline+Awesome Regular:style=Regular:size=10:antialias=true:hinting=true:minspace=true
+URxvt.italicFont:     xft:SourceCodePro+Powerline+Awesome Regular:style=Regular:size=10:antialias=true:hinting=true:minspace=true
+URxvt.boldItalicfont: xft:SourceCodePro+Powerline+Awesome Regular:style=Regular:size=10:antialias=true:hinting=true:minspace=true
+
+URxvt.letterSpace: 4
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
 URxvt.internalBorder: 2
@@ -60,36 +59,27 @@ URxvt.scrollBar_right: false
 URxvt.urgentOnBell: true
 URxvt.depth: 32
 URxvt.iso14755: false
+URxvt.transparent: false
 
-!URxvt*transparent: true
-!URxvt*shading: 10
-!URxvt*tintColor: #203050
-!URxvt*shading: 45
+! Disable screen printing by overriding the default print pipe.
+URxvt.print-pipe: "cat >/dev/null"
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!! Keybindings
-
-!! Copy paste
+! Copy paste
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-URxvt.keysym.Control-Meta-c: builtin-string:
-URxvt.keysym.Control-Meta-v: builtin-string:
+URxvt.keysym.Control-Meta-c:  builtin-string:
+URxvt.keysym.Control-Meta-v:  builtin-string:
 
-!! View
+! Font resize
 URxvt.keysym.Control-equal: font-size:increase
 URxvt.keysym.Control-minus: font-size:decrease
-URxvt.keysym.Control-0: font-size:reset
+URxvt.keysym.Control-0:     font-size:reset
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!! Rofi
+! Rofi
+
 rofi.terminal:          urxvt
 rofi.ssh-client:        ssh
 rofi.ssh-command:       {terminal} -e {ssh-client} {host}
 rofi.run-command:       {cmd}
 rofi.run-shell-command: {terminal} -e {cmd}
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!! Test
-
-! Disable screen printing by overriding the default print pipe.
-!URxvt.print-pipe: "cat >/dev/null"
