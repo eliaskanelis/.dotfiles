@@ -90,6 +90,10 @@ Desktop()
 function ActiveWindow()
 {
     WINDOW_NAME="$(xdotool getwindowfocus getwindowname)"
+
+    # Fix bug 'LG3D' is shown when no windows are selected
+    [[ "${WINDOW_NAME}" == "LG3D" ]] && WINDOW_NAME=""
+
     len=$(echo -n "${WINDOW_NAME}" | wc -m)
     max_len=70
     if [ "$len" -gt "$max_len" ];then
