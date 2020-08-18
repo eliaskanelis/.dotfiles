@@ -302,6 +302,20 @@ else
 fi
 
 ########################################################
+# Take me to a brand new playground ####################
+#
+#
+
+sandbox() {
+    #NAME=${RANDOM}
+    NAME=$(shuf -n1 /usr/share/dict/words | sed -e 's/[^A-Za-z0-9._-]/_/g')
+
+    rm -rf   /tmp/gimme_playground/${NAME}
+    mkdir -p /tmp/gimme_playground/${NAME}
+    cd       /tmp/gimme_playground/${NAME}
+}
+
+########################################################
 # Powerline10k prompt ##################################
 #
 #
