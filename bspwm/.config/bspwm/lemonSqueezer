@@ -230,7 +230,7 @@ function Language()
     elif [[ "$CURRENTLANG" == "gr" ]] ; then
 	echo -e "%{F$white}\uf11c%{F-} gr"
     else
-	echo -e "%{F$white}\uf11c%{F-} ?"
+	echo -e "%{F$red}\uf11c%{F-} ?"
     fi
 }
 
