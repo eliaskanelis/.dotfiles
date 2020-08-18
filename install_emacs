@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 MIRROR="ftp.cc.uoc.gr/mirrors/gnu/emacs/"
-TAR="emacs-26.3.tar.xz"
+TAR="emacs-27.1.tar.xz"
 OUTPUT_PATH="/tmp/emacs/"
 
 #############################################
