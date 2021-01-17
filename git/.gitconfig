@@ -19,7 +19,7 @@
 	co  = checkout
 	ci  = commit -v
 	br  = branch
-	dt  = difftool
+	dt  = difftool --dir-diff
 	d   = diff -w --color-words
 [mergetool]
 	prompt = false
