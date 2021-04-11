@@ -1,6 +1,20 @@
 #!/usr/bin/env bash
 
-TARGET_DIR="${HOME}/opt/"
+TARGET_DIR="${HOME}/opt/cpputest2/"
+
+# cmake is required
+if ! command -v cmake &> /dev/null
+then
+    echo "'cmake' could not be found"
+    exit 1
+fi
+
+# Git is required
+if ! command -v git &> /dev/null
+then
+    echo "'git' could not be found"
+    exit 1
+fi
 
 # Make dir if it doesn't exist
 mkdir -p ${TARGET_DIR}
@@ -11,11 +25,15 @@ git clone git://github.com/cpputest/cpputest.git ${TARGET_DIR}
 # Go to build dir
 cd ${TARGET_DIR}
 
+# Old way to build does not work anymore
 # Build
-./autogen.sh
-mkdir a_build_dir && cd a_build_dir
-../configure
+#./autogen.sh
+#mkdir a_build_dir && cd a_build_dir
+#../configure
+#make
+#make check
+
+cmake CMakeLists.txt
 make
-make check
 
 exit 0

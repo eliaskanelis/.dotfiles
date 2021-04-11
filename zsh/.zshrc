@@ -322,3 +322,5 @@ sandbox() {
 
 # To customize prompt, run 'p10k configure'
 [[ ! -f ~/.config/oh-my-zsh/p10k.zsh ]] || source ~/.config/oh-my-zsh/p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

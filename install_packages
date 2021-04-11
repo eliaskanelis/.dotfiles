@@ -175,6 +175,6 @@ crontab crontabFile
 
 # ------------------------------------------------------------------------------
 # Music
-sudo apt get install -y mpd
-sudo apt get install -y mpc
-sudo apt get install -y ncmpcpp
+sudo apt-get install -y mpd
+sudo apt-get install -y mpc
+sudo apt-get install -y ncmpcpp

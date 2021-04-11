@@ -100,3 +100,18 @@ super + less
 # Open music manager
 super + L
       exec ~/scripts/run/runScript.sh ncmpcpp
+
+# RSS feeder
+super + F
+      exec ~/scripts/run/runScript.sh newsboat
+
+# Mail client
+super + M
+      exec ~/scripts/run/runScript.sh mutt
+
+#-------------------------------------------------------------------------------
+# Test
+
+# Play / Toggle
+super + t
+      exec ~/playground/rofiMenu/menu2
