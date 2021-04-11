@@ -34,5 +34,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-#
+# Set default browser
 export BROWSER=$(command -v firefox)
+
+# Add games path
+PATH="/usr/games:$PATH"
