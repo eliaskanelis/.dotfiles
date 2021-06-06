@@ -184,10 +184,9 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
-#export CPPUTEST_DIR="${HOME}/opt/cpputest/"
-export PC_LINT_DIR="${HOME}/opt/Pc-lint"
-
-export PATH=${HOME}/opt/gcc-arm-none-eabi/bin:$PATH''
+if [ -f ~/.functions ]; then
+    . ~/.functions
+fi
 
 # Connect to a session called TMUX when you launch terminal.
 #if [ -z "$TMUX" ]
@@ -216,22 +215,6 @@ setopt HIST_BEEP
 #
 #
 
-# Load wal colors if they exist
-if [[ -f "${HOME}/.cache/wal/colors.sh" ]]; then
-    . "${HOME}/.cache/wal/colors.sh"
-fi
-
-export GTK2_RC_FILES=${HOME}/.gtkrc-2.0
-
-
-########################################################
-# Python startup script ################################
-#
-#
-
-export PYTHONSTARTUP=~/.pythonrc
-
-
 ########################################################
 # Pip autocompletion ###################################
 #
@@ -249,71 +232,6 @@ then
     eval "$(cat ${file})"
 fi
 
-########################################################
-# Automatic virtual environment ########################
-#
-#
-
-function cd() {
-    if [[ -d ./.venv ]] ; then
-	if command -v deactivate &> /dev/null
-	then
-	    deactivate
-	fi
-    fi
-
-    builtin cd $1
-
-    if [[ -d ./.venv ]] ; then
-	. ./.venv/bin/activate
-	# Autocompletion for invoke
-	if command -v invoke &> /dev/null
-	then
-	    source <(invoke --print-completion-script zsh)
-	fi
-    fi
-}
-
-########################################################
-# Ssh agent ############################################
-#
-#
-
-SSH_ENV="$HOME/.ssh/environment"
-
-function start_agent {
-    echo "Initialising new SSH agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add;
-}
-
-# Source SSH settings, if applicable
-
-if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    #ps ${SSH_AGENT_PID} doesn't work under cywgin
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-	start_agent;
-    }
-else
-    start_agent;
-fi
-
-########################################################
-# Take me to a brand new playground ####################
-#
-#
-
-sandbox() {
-    #NAME=${RANDOM}
-    NAME=$(shuf -n1 /usr/share/dict/words | sed -e 's/[^A-Za-z0-9._-]/_/g')
-
-    rm -rf   /tmp/gimme_playground/${NAME}
-    mkdir -p /tmp/gimme_playground/${NAME}
-    cd       /tmp/gimme_playground/${NAME}
-}
 
 ########################################################
 # Powerline10k prompt ##################################
