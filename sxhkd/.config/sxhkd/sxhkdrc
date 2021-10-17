@@ -44,7 +44,7 @@ super + shift + Return
 super + z
       exec ~/scripts/system/locate.sh
 
-# Locate file or directory and open it
+# Search file or directory and open it
 super + s
       exec ~/scripts/system/search.sh
 
@@ -52,7 +52,7 @@ super + s
 super + backslash
       exec ~/scripts/system/toggle-xkbmap.sh
 
-# Locate file or directory and open it
+# Show a help menu with the keybindings
 super + F1
       exec ~/.config/sxhkd/show
 

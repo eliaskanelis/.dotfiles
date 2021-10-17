@@ -167,7 +167,6 @@ sudo apt-get install -y virtualbox-guest-additions-iso
 sudo apt-get install -y hugo
 sudo apt-get install -y python3-pygments
 
-
 # ------------------------------------------------------------------------------
 # crontab
 sudo apt-get install -y cron
