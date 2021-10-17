@@ -47,7 +47,7 @@ URxvt.boldFont:       xft:SourceCodePro+Powerline+Awesome Regular:style=Regular:
 URxvt.italicFont:     xft:SourceCodePro+Powerline+Awesome Regular:style=Regular:size=10:antialias=true:hinting=true:minspace=true
 URxvt.boldItalicfont: xft:SourceCodePro+Powerline+Awesome Regular:style=Regular:size=10:antialias=true:hinting=true:minspace=true
 
-URxvt.letterSpace: 4
+URxvt.letterSpace: 1
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
 URxvt.internalBorder: 2
