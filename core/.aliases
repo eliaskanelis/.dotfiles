@@ -40,10 +40,11 @@ alias vdir='vdir --color=auto'
 
 # ls
 alias ls='ls --color=auto'
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias lsa='ls -lah'
+alias la='ls -AL'
+alias l='ls -CFL'
+
+alias ll='ls -alL'
+alias lsa='ls -alhL'
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
