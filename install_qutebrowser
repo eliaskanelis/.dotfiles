@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+OUTPUT_DIR="${HOME}/opt/qutebrowser"
+GIT_URL="https://github.com/qutebrowser/qutebrowser.git"
+
+git clone ${GIT_URL} ${OUTPUT_DIR}
+cd "${OUTPUT_DIR}/qutebrowser" || exit 1
+
+cwd
+
+python3 "${OUTPUT_DIR}/scripts/mkvenv.py" --venv-dir "${OUTPUT_DIR}/.venv"
+

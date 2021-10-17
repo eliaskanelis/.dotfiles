@@ -1,0 +1,4 @@
+#!/bin/bash
+
+QUTEROWSER_PATH="${HOME}/opt/qutebrowser"
+"${QUTEROWSER_PATH}"/.venv/bin/python3 -m qutebrowser "$@"
