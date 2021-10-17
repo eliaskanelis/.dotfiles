@@ -83,6 +83,14 @@ XF86AudioMute
       exec ~/scripts/audio/mute.sh
 
 #-------------------------------------------------------------------------------
+# Passwords
+
+
+# Get a password in the clipboard
+super + k
+      exec ~/scripts/pass/retrievePassword.sh
+
+#-------------------------------------------------------------------------------
 # Music
 
 # Play / Toggle
