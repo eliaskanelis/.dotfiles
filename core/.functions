@@ -100,3 +100,29 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
+
+
+########################################################
+# Git ##################################################
+#
+#
+
+# Git status
+function s {
+    isGitRepo=$(git rev-parse --git-dir 2> /dev/null)
+    if [ ! -z "${isGitRepo}" ]; then
+	git s
+    else
+	echo "Not a repository"
+    fi
+}
+
+# Git commit
+function c {
+    isGitRepo=$(git rev-parse --git-dir 2> /dev/null)
+    if [ ! -z "${isGitRepo}" ]; then
+	git ci
+    else
+	echo "Not a repository"
+    fi
+}
