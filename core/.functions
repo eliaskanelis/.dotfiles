@@ -45,14 +45,23 @@ function cd() {
 	fi
     fi
 
-    builtin cd "$1"
+    builtin cd "$@"
 
     if [[ -d ./.venv ]] ; then
 	. ./.venv/bin/activate
+
 	# Autocompletion for invoke
 	if command -v invoke &> /dev/null
 	then
-            source <(invoke --print-completion-script "$0")
+	    MY_SHELL=$(ps -T $$ | awk 'NR==2{print $NF}')
+            source <(invoke --print-completion-script="${MY_SHELL}" 2> /dev/null)
+	fi
+
+	# Autocompletion for macrame
+	if command -v macrame &> /dev/null
+	then
+	    MY_SHELL=$(ps -T $$ | awk 'NR==2{print $NF}')
+	    source <(macrame --print_shell_completion_script="${MY_SHELL}")
 	fi
     fi
 }
