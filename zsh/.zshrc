@@ -188,6 +188,10 @@ if [ -f ~/.functions ]; then
     . ~/.functions
 fi
 
+if [ -f ~/.secret ]; then
+    . ~/.secret
+fi
+
 # Connect to a session called TMUX when you launch terminal.
 #if [ -z "$TMUX" ]
 #then
