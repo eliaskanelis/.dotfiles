@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Check if there are arguments
+if (( $# == 0 )) ; then
+	# Check if stdin is not empty
+	if [ ! -t 0 ]; then
+		# Read from stdin
+		message=$(cat /dev/stdin)
+	fi
+else
+	# Read all arguments
+	message="$*"
+fi
+
+if [[ -z "${message}" ]]; then
+	message="Tried to sent an empty message. Sorry!"
+fi
+
+# This is the slack webhook
+webhook="https://hooks.slack.com/services/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"
+
+
+user="$(whoami)"
+host="$(hostname)"
+
+text="${user}@${host}\n"
+text+="${message}"
+
+
+# Sent the message
+/usr/bin/curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"${text}\"}" "${webhook}" &> /dev/null || exit 1
