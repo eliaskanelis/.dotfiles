@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudo apt-get update
+
 # ------------------------------------------------------------------------------
 # Terminal
 sudo apt-get install -y rxvt-unicode-256color
@@ -17,7 +19,7 @@ sudo apt-get install -y neofetch
 sudo apt-get install -y feh
 sudo apt-get install -y imagemagick
 sudo apt-get install -y virtualenv
-sudo apt get install -y alsa-utils
+sudo apt-get install -y alsa-utils
 sudo apt-get install -y compton
 sudo apt-get install -y xdotool
 sudo apt-get install -y ffmpeg
@@ -36,10 +38,10 @@ sudo apt-get install -y i3lock-fancy
 pip3 install --user i3ipc
 
 # bspwm
-sudo apt get install -y bspwm
-sudo apt get install -y lemonbar
-sudo apt get install -y trayer
-sudo apt get install -y xdo
+sudo apt-get install -y bspwm
+sudo apt-get install -y lemonbar
+sudo apt-get install -y trayer
+sudo apt-get install -y xdo
 
 # ------------------------------------------------------------------------------
 # Emacs
@@ -83,6 +85,7 @@ sudo apt-get install -y rlwrap
 sudo apt-get install -y espeak
 sudo apt-get install -y rclone
 sudo apt-get install -y trimage
+sudo apt-get install -y dnsutils
 
 # ------------------------------------------------------------------------------
 # ZSH
@@ -180,6 +183,6 @@ crontab crontabFile
 
 # ------------------------------------------------------------------------------
 # Music
-sudo apt get install -y mpd
-sudo apt get install -y mpc
-sudo apt get install -y ncmpcpp
+sudo apt-get install -y mpd
+sudo apt-get install -y mpc
+sudo apt-get install -y ncmpcpp
