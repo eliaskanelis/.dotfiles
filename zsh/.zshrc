@@ -81,6 +81,8 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+# https://stackoverflow.com/questions/62931101/i-have-multiple-files-of-zcompdump-why-do-i-have-multiple-files-of-these
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export ZSH="${HOME}/.config/oh-my-zsh/ohmyzsh"
 
 # Set name of the theme to load --- if set to "random", it will

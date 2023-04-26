@@ -97,6 +97,7 @@ sudo apt-get install -y fonts-powerline
 # Programmer
 
 # Dev tools
+sudo apt-get install -y dwarves # pahole
 sudo apt-get install -y sqlitebrowser
 sudo apt-get install -y jq
 sudo apt-get install -y exuberant-ctags

@@ -34,5 +34,22 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# XDG Base directory specification
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_STATE_HOME="${HOME}/.local/state"
+
 # Add games path
 PATH="/usr/games:$PATH"
+
+# Disable python bytecode (.pyc)
+export PYTHONDONTWRITEBYTECODE=1
+
+# Wget config location
+export WGETRC="${HOME}/.config/wget/wgetrc"
+
+# Less history file$
+HISTORY_PATH_LESS="${HOME}/.cache/less/"
+mkdir -p "${HISTORY_PATH_LESS}"
+export LESSHISTFILE="${HISTORY_PATH_LESS}lesshst"

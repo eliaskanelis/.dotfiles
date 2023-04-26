@@ -43,7 +43,6 @@ alias ls='ls --color=auto'
 alias la='ls -AL'
 alias l='ls -CFL'
 
-alias ll='ls -alL'
 alias lsa='ls -alhL'
 
 alias grep='grep --color=auto'
@@ -52,6 +51,7 @@ alias egrep='egrep --color=auto'
 
 ################################################################################
 # Tools
+
 alias copy="rsync -avrxHAX --progress"
 alias pgrep="ps -aux | grep"
 alias ccat="highlight --force --out-format=ansi"

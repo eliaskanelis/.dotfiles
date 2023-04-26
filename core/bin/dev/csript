@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+#echo 0: $0
+#echo 1: $1
+#echo 2: $2
+
+name="$1"
+
+if [ ! -f "${name}" ]; then
+	echo "File does not exist"
+	exit 1
+fi
+
+mkdir -p "/tmp/cscript/"
+executableFile="$(mktemp -q /tmp/cscript/${name}.XXXXXX || exit 1)"
+
+cleanup() {
+	# echo -e "Deleting '${executableFile}'"
+	rm -f "${executableFile}"
+}
+
+trap cleanup EXIT
+
+
+cflags="-Wall -Werror -pedantic -ansi -g"
+gcc "${name}" ${cflags} -o "${executableFile}"
+
+
+# Run the application
+"${executableFile}"
