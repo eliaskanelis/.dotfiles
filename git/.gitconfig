@@ -1,6 +1,6 @@
 [user]
-	email = hkanelhs@yahoo.gr
-	name = tedi
+	email = e.kanelis@voidbuffer.com
+	name = Kanelis Elias
 [core]
 	editor = emacsclient -t -create-frame --alternate-editor=
 	quotepath = false
