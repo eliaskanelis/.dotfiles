@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+# This is an interpreter for single filed C programs.
+#
+# Usage: c main.c
+
+set -eo pipefail
+
+# -----------------------------------------------------------------------------
+# Common functions
+
+die() {
+	echo "Error"
+	exit 1
+}
+
+# -----------------------------------------------------------------------------
+# Data
+
+prefix="/tmp/cscript/"
+
+# -----------------------------------------------------------------------------
+# User input
+
+filepath="$1"
+
+if [ ! -f "${filepath}" ]; then
+	echo "File does not exist"
+	exit 1
+fi
+
+# -----------------------------------------------------------------------------
+# Process
+
+function main() {
+
+	filename=$(basename "$filepath")
+
+	mkdir -p "${prefix}"
+	executableFile="$(mktemp -q "${prefix}/${filename}.XXXXXX" || exit 1)"
+
+	cleanup() {
+		# echo -e "Deleting '${executableFile}'"
+		rm -f "${executableFile}"
+	}
+
+	trap cleanup EXIT
+
+	cflags="-g -std=c99 \
+                -Wall -Werror -Wshadow -Wpedantic -Wextra -Wundef \
+                -Wcomments -Wmisleading-indentation \
+                -Wstrict-aliasing -fstrict-aliasing \
+                -Wduplicated-branches \
+                -Wduplicated-cond -Wcast-align -Wdangling-else"
+
+	gcc "${filepath}" ${cflags} -o "${executableFile}"
+
+	"${executableFile}"
+}
+
+main "$@"

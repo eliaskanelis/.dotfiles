@@ -123,7 +123,7 @@ fi
 #
 
 # Git status
-function s {
+function gs {
     isGitRepo=$(git rev-parse --git-dir 2> /dev/null)
     if [ ! -z "${isGitRepo}" ]; then
 	git s
@@ -133,7 +133,7 @@ function s {
 }
 
 # Git commit
-function c {
+function gc {
     isGitRepo=$(git rev-parse --git-dir 2> /dev/null)
     if [ ! -z "${isGitRepo}" ]; then
 	git ci
