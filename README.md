@@ -1,4 +1,4 @@
-# Ilias's personal dotfiles
+# Elias's personal dotfiles
 
 ## Dependencies
 
@@ -21,7 +21,7 @@ git clone --recurse-submodules git@kentavros.lan:tedi/.dotfiles.git ~/sync/
 This is a publicly available mirror.
 
 ```sh
-git clone git@github.com:TediCreations/.dotfiles.git ~/sync/
+git clone git@github.com:eliaskanelis/.dotfiles.git ~/sync/
 ```
 
 then manually fix any private gitea related git submodules with the Github equivalent.
@@ -59,4 +59,4 @@ cd ~/sync/.dotfiles
 
 ## License
 
-[GPL3](LICENSE) © Kanelis Ilias
+[GPL3](LICENSE) © Kanelis Elias
