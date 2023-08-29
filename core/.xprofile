@@ -24,3 +24,8 @@ fi
 if [ -z "$(pidof -s emacs)" ]; then
    emacs --daemon &> /dev/null &
 fi
+
+# Start syncthing
+if [ -z "$(pidof -s syncthing)" ]; then
+    syncthing serve --no-upgrade --no-browser --home=${HOME}/.config/syncthing/ &> /dev/null &
+fi
