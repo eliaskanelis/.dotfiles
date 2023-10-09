@@ -2,6 +2,14 @@
 
 TARGET_DIR="/tmp/lemonbar/"
 
+# Dependencies
+sudo apt-get update
+sudo apt-get install -y \
+     libxcb-randr0-dev libxft-dev \
+     xcb \
+     libxcb-xkb-dev x11-xkb-utils libx11-xcb-dev libxkbcommon-x11-dev #
+     libxcb-xinerama0-dev
+
 # Make dir if it doesn't exist
 mkdir -p ${TARGET_DIR}
 
