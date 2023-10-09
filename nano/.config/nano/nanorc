@@ -15,13 +15,13 @@
 set linenumbers
 
 # Scroll line-by-line, instead of the usual chunk-by-chunk behavior
-set smooth
+set jumpyscrolling
 
 # Indent new lines to the previous line’s indentation
 set autoindent
 
 # Remove line after the titlebar for more space
-set morespace
+set minibar
 
 # Remove help menu
 set nohelp
