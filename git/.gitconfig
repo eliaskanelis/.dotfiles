@@ -28,3 +28,5 @@
 [instaweb]
 	port = 4000
 	browser = firefox
+[init]
+	defaultBranch = master
