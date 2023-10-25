@@ -162,3 +162,15 @@ function devtools {
 
     docker run --rm --interactive --tty --volume ${PWD}:/workdir devtools ${args}
 }
+
+########################################################
+# ssh ##################################################
+#
+#
+
+# Normal ssh but land into a tmux session.
+# The only requirement is that tmux is installed on the remote.
+function ssht()
+{
+    /usr/bin/ssh -t "$@" "tmux attach || tmux new"
+}
