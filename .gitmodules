@@ -1,5 +1,5 @@
-[submodule "emacs/.emacs.d"]
-	path = emacs/.emacs.d
+[submodule "emacs/.config/emacs"]
+	path = emacs/.config/emacs
 	url = git@kentavros.lan:tedi/.emacs.d.git
 [submodule "zsh/.config/oh-my-zsh/ohmyzsh"]
 	path = zsh/.config/oh-my-zsh/ohmyzsh

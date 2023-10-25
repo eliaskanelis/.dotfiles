@@ -11,7 +11,7 @@ alias free='free -mht'
 
 ################################################################################
 # Standard emacs
-alias emacs="emacs-28.2"
+alias emacs="emacs-29.1"
 
 alias e="emacsclient -t -create-frame --alternate-editor="
 alias em="emacsclient -create-frame --alternate-editor="
