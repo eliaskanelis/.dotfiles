@@ -174,3 +174,33 @@ function ssht()
 {
     /usr/bin/ssh -t "$@" "tmux attach || tmux new"
 }
+
+########################################################
+# fuzzy ################################################
+#
+#
+
+# Fuzzy silversearcher and open file with editor
+function fag()
+{
+    ag "$@" --color \
+    | fzf --ansi \
+      --preview '
+        clean_line=$(echo {} | sed "s/\x1b\[[0-9;]*m//g");
+        filename=$(echo "$clean_line" | cut -d: -f1);
+        lineno=$(echo "$clean_line" | cut -d: -f2);
+        start=$((lineno > 10 ? lineno - 10 : 1));
+        end=$((lineno + 10));
+        batcat --style=numbers --color=always --highlight-line=$lineno --line-range=$start:$end "$filename"
+      ' \
+      --preview-window=up:50% \
+    | sed 's/\x1b\[[0-9;]*m//g' \
+    | awk -F: -v search="$*" '{
+        cmd = "ag \"" search "\" --vimgrep \"" $1 "\" | head -1 | cut -d: -f3"
+        cmd | getline col
+        close(cmd)
+        col = (col == "") ? "1" : col
+        print "+" $2 ":" col, $1
+    }' \
+    | xargs -r emacsclient -t -create-frame --alternate-editor=''
+}

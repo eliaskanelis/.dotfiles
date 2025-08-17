@@ -23,6 +23,7 @@ sudo apt-get install -y alsa-utils
 sudo apt-get install -y compton
 sudo apt-get install -y xdotool
 sudo apt-get install -y ffmpeg
+sudo apt-get install -y fzf
 
 sudo apt-get install -y scrot
 sudo apt-get install -y flameshot

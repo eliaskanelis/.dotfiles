@@ -148,6 +148,12 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     colored-man-pages
+    command-not-found
+    docker
+    fzf
+    pip
+    zsh-interactive-cd
+    zsh-navigation-tools
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -215,6 +221,20 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
+
+
+########################################################
+# FZF ##################################################
+#
+#
+
+if [ -f /usr/share/fzf/key-bindings.zsh ]; then
+    . /usr/share/fzf/key-bindings.zsh
+fi
+
+if [ -f /usr/share/fzf/completion.zsh ]; then
+    . /usr/share/fzf/completion.zsh
+fi
 
 ########################################################
 # Indepentant of zsh ###################################
